@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+<meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+<meta name="author" content="baiyinlai" />
+<meta name="robots" content="all,index,follow" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="revisit-after" content="7 days" />
+<meta name="rating" content="general" />
+<meta name="distribution" content="global" />
+<title>Linux 下五大搜索命令 | All For One</title>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/syntax.css" />
+<!-- [if IE 7]>
+     <link rel="stylesheet" media="all" href="css/ie7.css" />
+     <![endif]-->
+<!-- Google Fonts -->
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Kristi" />
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script type="text/javascript" src="/js/tags.js"> </script>
+
+
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <!-- Begin Header -->
+      <header id="page-header">
+	<div id="logo">
+	  <h1 id="title"><a href="/">All For One</a></h1>
+	  <span>Love life, love sports, love to learn, & love...</span>
+	</div>
+	<div id="topSearch">
+	  <form id="searchform" action="index.html" method="get">
+	    <input type="text" id="s" name="s" value="type your search and hit enter" onFocus="this.value=''" />
+	  </form>
+	</div>
+      </header>
+      <!-- End Header -->
+      <!-- Begin Content -->
+      <div id="content-wrapper">
+	<div id="content-inner-wrapper">
+	  
+	  <!-- Begin Main Content ( right col ) -->
+	  <section id="main-content">
+	    <article class="post">
+  <header class="postHeader">
+    <div class="date">Jul&nbsp;08,&nbsp;2013&nbsp;-&nbsp;<span><img src="/images/icons/category.png" alt="Category" title="分类"/><a href="/blog/categories.html#学习 & 提升" title="查看 学习 & 提升 中的全部文章" rel="category">学习 & 提升</a> &nbsp;&nbsp;<img src="/images/icons/tag.png" alt="Tags" title="标签" /><a href="/blog/tags.html#计算机" title="查看 计算机 中的全部文章">计算机&nbsp;&nbsp;</a><a href="/blog/tags.html#Linux" title="查看 Linux 中的全部文章">Linux&nbsp;&nbsp;</a></span><img src="/images/icons/author.png" alt="Author" title="作者" />Bai</div>
+    <h1>Linux 下五大搜索命令</h1>
+  </header>
+  <section class="postText">
+    <p>使用电脑的时候，经常需要查找文件。在Linux中，有很多方法可以做到这一点，下面对 linux 下的五大搜索命令进行简单的介绍。</p>
+
+<h2>1. find</h2>
+
+<p><code>find</code>是最常见和最强大的查找命令，你可以用它找到任何你想找的文件。<code>find</code>命令可在使用、管理Linux系统中方便地查找所需要的指定文件。</p>
+
+<p><code>find</code>的使用格式如下：</p>
+
+<pre><code>$ find &lt;指定目录&gt; &lt;指定条件&gt; &lt;指定动作&gt;
+</code></pre>
+
+<p><strong>&lt;指定目录>：</strong>所要搜索的目录及其所有子目录。默认为当前目录。可以为一个目录列表，目录间用空格分隔。</p>
+
+<p><strong>&lt;指定条件>：</strong>所要搜索的文件的特征。当要使用多个特征时可以用<code>-and</code>参数，也可以省略此参数用空格代替。常用的条件如下：</p>
+
+<p><code>-name <em>filename</em></code>：告诉<code>find</code>要找什么文件，可以使用通配符（<code>*</code>和<code>？</code>）。</p>
+
+<p><code>-type x</code>：匹配所有类型为 x 的文件。x可以是是：f（一般文件），d（目录），c（字符特殊），b（块特殊），p（有名管道），l（符号连接），s（套接文件）。</p>
+
+<p><code>-user <em>usernumber</em></code>：匹配所有用户序列号是前面所指定的用户序列号的文件，可以是数字型的值或用户登录名。</p>
+
+<p><code>-amin n</code>：查找 n 分钟内或外被访问过的所有文件。n 可以有正负号，分别表示 n 分钟外、n 分钟内被访问过的文件。（下同）</p>
+
+<p><code>-atime n</code>：查找 n 天内或外被访问过的所有文件。</p>
+
+<p><code>-cmin n</code>：查找 n 分钟内或外文件状态被修改过的所有文件。</p>
+
+<p><code>-ctime n</code>：查找 n 天内或外文件状态被修改过的所有文件。</p>
+
+<p><code>-mmin n</code>：查找 n 分钟内或外文件内容被修改过的所有文件。</p>
+
+<p><code>-mtime n</code>：查找 n 天内或外文件内容被修改过的所有文件。</p>
+
+<p><code>-newer <em>filename</em></code>：匹配所有修改时间比 filename 文件更新的文件。</p>
+
+<p><code>-size n</code>：匹配所有大小为 n 块的文件（512 字节块，若 k 在 n 后，则为 1K 字节块）。</p>
+
+<p><code>-print</code>：显示整个文件路径和名称。一般来说，都要用<code>-print</code>，如果没有这个参数，则<code>find</code>命令进行所要求的搜索是没有显示结果的。</p>
+
+<p><strong>&lt;指定动作>：</strong>对搜索结果进行特定的处理。</p>
+
+<p>如果什么参数也不加，<code>find</code> 默认搜索当前目录及其子目录，并且不过滤任何结果（也就是返回所有文件），将它们全都显示在屏幕上。</p>
+
+<p><strong><code>find</code>的使用实例：</strong></p>
+
+<pre><code>$ find / -name myfile
+</code></pre>
+
+<p>在整个系统中搜索文件名为 myfile 的文件。</p>
+
+<pre><code>$ find / -type d -name dirname
+</code></pre>
+
+<p>在整个系统中搜索名称为 dirname 的目录。</p>
+
+<pre><code>$ find . -name my*
+</code></pre>
+
+<p>搜索当前目录（含子目录）中，所有文件名以 my 开头的文件。</p>
+
+<pre><code>$ find . -name my* -ls
+</code></pre>
+
+<p>搜索当前目录中，所有文件名以 my 开头的文件，并显示它们的详细信息。</p>
+
+<pre><code>$ find . -type f -mmin -10
+</code></pre>
+
+<p>搜索当前目录中，所有过去 10 分钟内更新过的普通文件。如果不加<code>-type f</code>参数，则搜索普通文件、特殊文件以及目录。</p>
+
+<pre><code>$ find /var/spool -mtime +60
+</code></pre>
+
+<p>搜索 /var/spool 目录中，在 60 天之前修改过的文件。</p>
+
+<pre><code>$ find /etc –size -2500c –print
+</code></pre>
+
+<p>搜索 /etc 目录下文件大小小于 2500 字节的文件。</p>
+
+<pre><code>$ find / -type f -name "*.log" | xargs grep "ERROR"
+</code></pre>
+
+<p>从根目录开始查找所有扩展名为 .log 的文本文件，并找出包含 ERROR 的行。</p>
+
+<p><strong>无错误查找技巧：</strong></p>
+
+<p>在 Linux 系统中<code>find</code>命令是大多数系统用户都可以使用的命令， 并不是 ROOT 系统管理员的专利。但是普通用户使用<code>find</code>命令时也有可能遇到这样的问题，那就是 Linux 系统中系统管理员 ROOT 可以把某些文件目录设置成禁止访问模式。这样普通用户就没有权限用<code>find</code>命令来查询这些目录或者文件。当普通用户使用<code>find</code>命令来查询这些文件目录是，往往会出现 "Permission denied."（禁止访问）字样。系统将无法查询到你想要的文件。为了避免这样的错误，我们可是使用转移错误提示的方法尝试着查找文件，即在后面加上<code>2>/dev/null</code>参数。例如：</p>
+
+<pre><code>$ find / -name access_log 2&gt;/dev/null
+</code></pre>
+
+<p>这个方法是把查找错误提示转移到特定的目录中去。系统执行这个命令后，遇到错误的信息就直接输送到 stderrstream 2 中，2 就是表明系统将把错误信息输送到 stderrstream 2 中，/dev/null 是一个特殊的文件，表明空的或者错误的信息，这样查询到的错误信息将被转移了，不会再显示了。</p>
+
+<h2>2. locate</h2>
+
+<p><code>locate</code>命令其实是<code>find -name</code>的另一种写法，但是要比后者快得多，原因在于它不搜索具体目录，而是搜索一个数据库 /var/lib/locatedb，这个数据库中含有本地所有文件信息。Linux 系统自动创建这个数据库，并且每天自动更新一次，所以使用<code>locate</code>命令查不到最新变动过的文件。为了避免这种情况，可以在使用<code>locate</code>之前，先使用<code>updatedb</code>命令，手动更新数据库。</p>
+
+<p><strong><code>locate</code>命令的使用实例：</strong></p>
+
+<pre><code>$ locate /etc/sh
+</code></pre>
+
+<p>搜索 etc 目录下所有以 sh 开头的文件。</p>
+
+<pre><code>$ locate ~/m
+</code></pre>
+
+<p>搜索用户主目录下，所有以 m 开头的文件。</p>
+
+<pre><code>$ locate -i ~/m
+</code></pre>
+
+<p>搜索用户主目录下，所有以 m 开头的文件，并且忽略大小写。</p>
+
+<h2>3. whereis</h2>
+
+<p><code>whereis</code>命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man 说明文件（参数-m）和源代码文件（参数-s）。如果省略参数，则返回所有信息。</p>
+
+<p><strong><code>whereis</code>命令的使用实例：</strong></p>
+
+<pre><code>$ whereis grep
+</code></pre>
+
+<p>搜索<code>grep</code>命令所在的目录。</p>
+
+<h2>4. which</h2>
+
+<p><code>which</code>命令的作用是，在<code>PATH</code>变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。也就是说，使用<code>which</code>命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。</p>
+
+<p><strong><code>which</code>命令的使用实例：</strong></p>
+
+<pre><code>$ which grep
+</code></pre>
+
+<h2>5. type</h2>
+
+<p><code>type</code>命令其实不能算查找命令，它是用来区分某个命令到底是由 shell 自带的，还是由 shell 外部的独立二进制文件提供的。如果一个命令是外部命令，那么使用<code>-p</code>参数，会显示该命令的路径，相当于<code>which</code>命令。</p>
+
+<p><strong><code>type</code>命令的使用实例：</strong></p>
+
+<pre><code>$ type cd
+</code></pre>
+
+<p>系统会提示，<code>cd</code>是 shell 的自带命令（build-in）。</p>
+
+<pre><code>$ type grep
+</code></pre>
+
+<p>系统会提示，<code>grep</code>是一个外部命令，并显示该命令的路径。</p>
+
+<pre><code>$ type -p grep
+</code></pre>
+
+<p>加上 <code>-p</code>参数后，就相当于<code>which</code>命令。</p>
+
+  </section>
+  <section class="postText">
+  <p><span class="emphasize_zh">上一篇：</span> <a rel="prev" href="/blog/how_to_be_a_hacker.html" title="如何成为一名黑客">如何成为一名黑客</a></p><p><span class="emphasize_zh">下一篇：</span><a rel="next" href="/blog/lady_%26_bird.html" title="Lady & Bird">Lady & Bird</a></p>
+  </section>
+  <section class="postText">
+    <div id="duoshuo">
+      <!-- Duoshuo Comment BEGIN -->
+      <div class="ds-thread"></div>
+      <script type="text/javascript">
+	var duoshuoQuery = {short_name:"baige5117"};
+	(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = 'http://static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+      </script>
+      <!-- Duoshuo Comment END -->
+    </div>
+  </section>
+  <div class="sidebadge"></div>
+</article>
+
+	  </section>
+	  <!-- End Main Content ( right col ) -->
+	  
+	  <aside id="sidebar">
+  <!-- Begin Social Icons -->
+  <section id="nav">
+    <ul>
+      <li><a href="/" class="blog tip" title="博客">博文</a></li>
+      <li><a href="/music.html" class="music" title="音乐之声">音乐</a></li>
+      <li><a href="/sayings.html" title="言语" class="say">Say</a></li>
+      <li><a href="/about.html" title="关于" class="about">关于</a></li>
+    </ul>
+    <a href="#contact" id="butContact">Contact</a>
+  </section>
+  <!-- End Social Icons -->
+  
+  <section class="sideBox">
+    <div class="textwidget"><a href="/about.html"><img class="out_border" title="Yinlai.Bai" src="/images/v.jpg" alt="V字仇杀队" width="200" height="200" /></a></div>
+  </section>
+  
+  <section class="sideBox">
+    <h3><a href="/blog/categories.html" title="查看分类页">分类目录</a></h3>		
+    <ul>
+      
+      <li>
+	<a href="/blog/categories.html#健康 & 运动" title="查看 健康 & 运动 下的所有文章">健康 & 运动</a>&nbsp;(1)
+      </li>
+      
+      <li>
+	<a href="/blog/categories.html#学习 & 提升" title="查看 学习 & 提升 下的所有文章">学习 & 提升</a>&nbsp;(16)
+      </li>
+      
+      <li>
+	<a href="/blog/categories.html#休闲 & 娱乐" title="查看 休闲 & 娱乐 下的所有文章">休闲 & 娱乐</a>&nbsp;(10)
+      </li>
+      
+      <li>
+	<a href="/blog/categories.html#人生 & 思考" title="查看 人生 & 思考 下的所有文章">人生 & 思考</a>&nbsp;(6)
+      </li>
+      
+      <li>
+	<a href="/blog/categories.html#励志 & 成功" title="查看 励志 & 成功 下的所有文章">励志 & 成功</a>&nbsp;(2)
+      </li>
+      
+      <li>
+	<a href="/blog/categories.html#工具 & 软件" title="查看 工具 & 软件 下的所有文章">工具 & 软件</a>&nbsp;(2)
+      </li>
+      
+      <li>
+	<a href="/blog/categories.html#职场 & 工作" title="查看 职场 & 工作 下的所有文章">职场 & 工作</a>&nbsp;(1)
+      </li>
+      
+    </ul>
+  </section>
+
+  <section class="sideBox">		
+    <h3>推荐文章</h3>		
+    <ul>
+      <li><a href="/blog/5_balls_of_life.html" title="动物庄园">动物庄园</a></li>
+      <li><a href="#" title="经典排序算法">经典排序算法</a></li>
+      <li><a href="#" title="Markdown 基本语法">Markdown 基本语法</a></li>
+      <li><a href="#" title="几款不错的开源CAD-CAM软件">几款不错的开源CAD-CAM软件</a></li>
+      <li><a href="#" title="如何最有效的慢跑">如何最有效的慢跑</a></li>
+      <li><a href="#" title="R 树——动态空间索引结构">R 树——动态空间索引结构</a></li>
+      <li><a href="#" title="高效率人士的优秀习惯">高效率人士的优秀习惯</a></li>
+      <li><a href="#" title="The Secret - The Law of Attraction">The Secret - The Law of Attraction</a></li>
+      <li><a href="#" title="FreeCAD的使用">FreeCAD的使用</a></li>
+      <li><a href="#" title="Linux 中 Grep 命令使用方法">Linux 中 Grep 命令使用方法</a></li>
+      <li><a href="#" title="如何改变你的生活">如何改变你的生活</a></li>
+      <li><a href="#" title="Linux 下五大搜索命令">Linux 下五大搜索命令</a></li>
+      <li><a href="#" title="Linux/Unix 环境下实现精确计算程序运行的时间">Linux/Unix 环境下实现精确计算程序运行的时间</a></li>
+    </ul>
+  </section>
+  <section class="sideBox">
+    <h3><a href="/blog/archive.html" title="查看日期归档页">日期存档</a></h3>
+    <ul>
+      
+      
+      
+      
+      
+        
+          
+        
+      
+      
+      
+      
+      
+      
+        
+          <li><a href="/blog/archive.html#2013&nbsp;年&nbsp;12&nbsp;月" title="查看所有 2013&nbsp;年&nbsp;12&nbsp;月 的文章">2013&nbsp;年&nbsp;12&nbsp;月</a>&nbsp;&nbsp;(1)</li>
+          
+        
+      
+      
+      
+      
+      
+      
+        
+          <li><a href="/blog/archive.html#2013&nbsp;年&nbsp;11&nbsp;月" title="查看所有 2013&nbsp;年&nbsp;11&nbsp;月 的文章">2013&nbsp;年&nbsp;11&nbsp;月</a>&nbsp;&nbsp;(1)</li>
+          
+        
+      
+      
+      
+      
+      
+      
+        
+          <li><a href="/blog/archive.html#2013&nbsp;年&nbsp;10&nbsp;月" title="查看所有 2013&nbsp;年&nbsp;10&nbsp;月 的文章">2013&nbsp;年&nbsp;10&nbsp;月</a>&nbsp;&nbsp;(1)</li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          <li><a href="/blog/archive.html#2013&nbsp;年&nbsp;09&nbsp;月" title="查看所有 2013&nbsp;年&nbsp;09&nbsp;月 的文章">2013&nbsp;年&nbsp;09&nbsp;月</a>&nbsp;&nbsp;(12)</li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          <li><a href="/blog/archive.html#2013&nbsp;年&nbsp;08&nbsp;月" title="查看所有 2013&nbsp;年&nbsp;08&nbsp;月 的文章">2013&nbsp;年&nbsp;08&nbsp;月</a>&nbsp;&nbsp;(4)</li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          <li><a href="/blog/archive.html#2013&nbsp;年&nbsp;07&nbsp;月" title="查看所有 2013&nbsp;年&nbsp;07&nbsp;月 的文章">2013&nbsp;年&nbsp;07&nbsp;月</a>&nbsp;&nbsp;(9)</li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          <li><a href="/blog/archive.html#2013&nbsp;年&nbsp;06&nbsp;月" title="查看所有 2013&nbsp;年&nbsp;06&nbsp;月 的文章">2013&nbsp;年&nbsp;06&nbsp;月</a>&nbsp;&nbsp;(3)</li>
+          
+        
+      
+      
+      
+      
+      
+      
+        
+          <li><a href="/blog/archive.html#2013&nbsp;年&nbsp;04&nbsp;月" title="查看所有 2013&nbsp;年&nbsp;04&nbsp;月 的文章">2013&nbsp;年&nbsp;04&nbsp;月</a>&nbsp;&nbsp;(1)</li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          <li><a href="/blog/archive.html#2012&nbsp;年&nbsp;12&nbsp;月" title="查看所有 2012&nbsp;年&nbsp;12&nbsp;月 的文章">2012&nbsp;年&nbsp;12&nbsp;月</a>&nbsp;&nbsp;(3)</li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          <li><a href="/blog/archive.html#2012&nbsp;年&nbsp;10&nbsp;月" title="查看所有 2012&nbsp;年&nbsp;10&nbsp;月 的文章">2012&nbsp;年&nbsp;10&nbsp;月</a>&nbsp;&nbsp;(2)</li>
+          
+        
+      
+      
+        <li><a href="/blog/archive.html#2011&nbsp;年&nbsp;10&nbsp;月" title="查看所有 2011&nbsp;年&nbsp;10&nbsp;月 的文章">2011&nbsp;年&nbsp;10&nbsp;月</a>&nbsp;&nbsp;(1)</li>
+      
+      
+    </ul>
+    <!--ul>
+	<li><a href=“” title=“”>2013 年十一月</a>&nbsp;(3)</li>
+    </ul-->
+  </section>
+  <section class="sideBox">
+    <h3>常用链接</h3>
+    <ul class='xoxo blogroll'>
+      <li><a href="http://www.w3schools.com/" target="_blank">w3school在线教程(英文)—W3Schools Online Web Tutorials</a></li>
+      <li><a href="http://www.w3school.com.cn/" target="_blank">w3school在线教程(中文)—W3Schools Online Web Tutorials</a></li>
+      <li><a href="http://colorschemedesigner.com/" target="_blank">高级在线配色器—Color Scheme Designer</a></li>
+      <li><a href="http://ikreator.com/special-characters/" target="_blank">HTML特殊字符大全—HTML Special Characters</a></li>
+      <li><a href="http://www.refresh-sf.com/yui/" target="_blank">在线JS/CSS压缩工具—YUI Compressor</a></li>
+      <li><a href="http://www.smushit.com/ysmush.it/" target="_blank">在线图片压缩工具—Smush.it</a></li>
+      <li><a href="http://tinypng.org/" target="_blank">非常好用的在线PNG图片压缩工具—tinypng</a></li>
+      <li><a href="http://pngmini.com/" target="_blank">PNG图片压缩工具—ImageAlpha</a></li>
+    </ul>
+  </section>
+  <section class="sideBox">
+    <h3>微博说说</h3>
+    <div id="weibo_wrap">
+      <iframe width="230" height="600" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=230&height=600&fansRow=2&ptype=1&speed=0&skin=8&isTitle=1&noborder=1&isWeibo=1&isFans=0&uid=1312421323&verifier=dde46a02&dpc=1"></iframe>
+    </div>
+  </section>
+
+  <section class="sideBox">		
+    <h3><a href="/blog/tags.html" title="查看标签页">分类标签</a></h3>
+    <div id="tags_wrap">
+    
+    <a href="/blog/tags.html#健康" title="1">健康</a>
+    
+    <a href="/blog/tags.html#运动" title="1">运动</a>
+    
+    <a href="/blog/tags.html#空间索引" title="1">空间索引</a>
+    
+    <a href="/blog/tags.html#数据结构" title="1">数据结构</a>
+    
+    <a href="/blog/tags.html#人物" title="4">人物</a>
+    
+    <a href="/blog/tags.html#趣事" title="3">趣事</a>
+    
+    <a href="/blog/tags.html#视频" title="2">视频</a>
+    
+    <a href="/blog/tags.html#青春" title="2">青春</a>
+    
+    <a href="/blog/tags.html#幽默" title="3">幽默</a>
+    
+    <a href="/blog/tags.html#快乐" title="1">快乐</a>
+    
+    <a href="/blog/tags.html#开心一刻" title="2">开心一刻</a>
+    
+    <a href="/blog/tags.html#音乐" title="3">音乐</a>
+    
+    <a href="/blog/tags.html#人生" title="8">人生</a>
+    
+    <a href="/blog/tags.html#国学" title="2">国学</a>
+    
+    <a href="/blog/tags.html#文学" title="1">文学</a>
+    
+    <a href="/blog/tags.html#计算机" title="3">计算机</a>
+    
+    <a href="/blog/tags.html#黑客" title="1">黑客</a>
+    
+    <a href="/blog/tags.html#Linux" title="3">Linux</a>
+    
+    <a href="/blog/tags.html#机械" title="4">机械</a>
+    
+    <a href="/blog/tags.html#CAD" title="1">CAD</a>
+    
+    <a href="/blog/tags.html#语录" title="1">语录</a>
+    
+    <a href="/blog/tags.html#电影" title="1">电影</a>
+    
+    <a href="/blog/tags.html#励志" title="4">励志</a>
+    
+    <a href="/blog/tags.html#程序设计" title="2">程序设计</a>
+    
+    <a href="/blog/tags.html#编程语言" title="4">编程语言</a>
+    
+    <a href="/blog/tags.html#C语言" title="2">C语言</a>
+    
+    <a href="/blog/tags.html#单元测试" title="2">单元测试</a>
+    
+    <a href="/blog/tags.html#演讲" title="2">演讲</a>
+    
+    <a href="/blog/tags.html#阅读" title="2">阅读</a>
+    
+    <a href="/blog/tags.html#思考" title="3">思考</a>
+    
+    <a href="/blog/tags.html#故事" title="3">故事</a>
+    
+    <a href="/blog/tags.html#软件" title="1">软件</a>
+    
+    <a href="/blog/tags.html#学习笔记" title="4">学习笔记</a>
+    
+    <a href="/blog/tags.html#逆向工程" title="3">逆向工程</a>
+    
+    <a href="/blog/tags.html#力学" title="2">力学</a>
+    
+    <a href="/blog/tags.html#物理" title="2">物理</a>
+    
+    <a href="/blog/tags.html#数学" title="1">数学</a>
+    
+    <a href="/blog/tags.html#有限元" title="2">有限元</a>
+    
+    <a href="/blog/tags.html#事业" title="1">事业</a>
+    
+    <a href="/blog/tags.html#生活" title="2">生活</a>
+    
+    <a href="/blog/tags.html#脚本" title="2">脚本</a>
+    
+    <a href="/blog/tags.html#批处理" title="2">批处理</a>
+    
+    <a href="/blog/tags.html#工作" title="1">工作</a>
+    
+    <a href="/blog/tags.html#职业" title="1">职业</a>
+    
+  </div>
+  </section>
+
+  <section class="sideBox">
+    <h3 id="contact">联系我</h3>		
+    <ul id="social">
+      <li><a  class="email" href="baige5117@gmail.com" target="_blank"></a></li>
+      <li><a  class="weibo" href="http://weibo.com/u/1312421323" target="_blank"></a></li>
+      <li><a  class="douban" href="http://www.douban.com/people/2697328/" target="_blank"></a></li>
+      <li><a  class="rss" href="#" target="_blank"></a></li>
+    </ul>
+  </section>
+</aside>
+
+	</div>
+      </div>
+      <!-- End Content -->
+      <footer id="page-footer">
+	<div id="site5bottom">By <br /><a href="/">Yinlai.Bai</a>.<br/>
+	</div>
+      </footer>
+    </div>
+    <div id="gotop">回顶部</div>
+    <script type="text/javascript" src="/js/gotop.js"></script>
+  </body>
+</html>
