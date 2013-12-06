@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>Linux File System Structure Explained</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">Linux File System Structure Explained</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2013-08-03</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#学习与提升">学习与提升</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#Linux">Linux&nbsp;&nbsp;</a><a href="/blog/tags.html#计算机">计算机&nbsp;&nbsp;</a></li>
+      <li class="p_i_bg link"><a href="http://www.thegeekstuff.com/2010/09/linux-file-system-structure/" target="_blank">The Geek Stuff</a></li>
+    </ul>
+  </div>
+  <p>Have you wondered why certain programs are located under /bin, or /sbin, or /usr/bin, or /usr/sbin?</p>
+
+<p>For example, less command is located under /usr/bin directory. Why not /bin, or /sbin, or /usr/sbin? What is the different between all these directories?</p>
+
+<p>In this article, let us review the Linux filesystem structures and understand the meaning of individual high-level directories.</p>
+
+<p class="post_fig"><img src="/blog/media/filesystem-structure.png" alt="filesystem-structure" /></p>
+
+
+<h3>1. / - Root</h3>
+
+<ul>
+<li>Every single file and directory starts from the root directory.</li>
+<li>Only root user has write privilege under this directory.</li>
+<li>Please note that /root is root user’s home directory, which is not same as /.</li>
+</ul>
+
+
+<h3>2. /bin - User Binaries</h3>
+
+<ul>
+<li>Contains binary executables.</li>
+<li>Common linux commands you need to use in single-user modes are located under this directory.</li>
+<li>Commands used by all the users of the system are located here.</li>
+<li>For example: ps, ls, ping, grep, cp.</li>
+</ul>
+
+
+<h3>3. /sbin – System Binaries</h3>
+
+<ul>
+<li>Just like /bin, /sbin also contains binary executables.</li>
+<li>But, the linux commands located under this directory are used typically by system aministrator, for system maintenance purpose.</li>
+<li>For example: iptables, reboot, fdisk, ifconfig, swapon</li>
+</ul>
+
+
+<h3>4. /etc – Configuration Files</h3>
+
+<ul>
+<li>Contains configuration files required by all programs.</li>
+<li>This also contains startup and shutdown shell scripts used to start/stop individual programs.</li>
+<li>For example: /etc/resolv.conf, /etc/logrotate.conf</li>
+</ul>
+
+
+<h3>5. /dev – Device Files</h3>
+
+<ul>
+<li>Contains device files.</li>
+<li>These include terminal devices, usb, or any device attached to the system.</li>
+<li>For example: /dev/tty1, /dev/usbmon0</li>
+</ul>
+
+
+<h3>6. /proc – Process Information</h3>
+
+<ul>
+<li>Contains information about system process.</li>
+<li>This is a pseudo filesystem contains information about running process. For example: /proc/{pid} directory contains information about the process with that particular pid.</li>
+<li>This is a virtual filesystem with text information about system resources. For example: /proc/uptime</li>
+</ul>
+
+
+<h3>7. /var – Variable Files</h3>
+
+<ul>
+<li>var stands for variable files.</li>
+<li>Content of the files that are expected to grow can be found under this directory.</li>
+<li>This includes — system log files (/var/log); packages and database files (/var/lib); emails (/var/mail); print queues (/var/spool); lock files (/var/lock); temp files needed across reboots (/var/tmp);</li>
+</ul>
+
+
+<h3>8. /tmp – Temporary Files</h3>
+
+<ul>
+<li>Directory that contains temporary files created by system and users.</li>
+<li>Files under this directory are deleted when system is rebooted.+</li>
+</ul>
+
+
+<h3>9. /usr – User Programs</h3>
+
+<ul>
+<li>Contains binaries, libraries, documentation, and source-code for second level programs.</li>
+<li>/usr/bin contains binary files for user programs. If you can’t find a user binary under /bin, look under /usr/bin. For example: at, awk, cc, less, scp</li>
+<li>/usr/sbin contains binary files for system administrators. If you can’t find a system binary under /sbin, look under /usr/sbin. For example: atd, cron, sshd, useradd, userdel</li>
+<li>/usr/lib contains libraries for /usr/bin and /usr/sbin</li>
+<li>/usr/local contains users programs that you install from source. For example, when you install apache from source, it goes under /usr/local/apache2</li>
+</ul>
+
+
+<h3>10. /home – Home Directories</h3>
+
+<ul>
+<li>Home directories for all users to store their personal files.</li>
+<li>For example: /home/john, /home/nikita+</li>
+</ul>
+
+
+<h3>11. /boot – Boot Loader Files</h3>
+
+<ul>
+<li>Contains boot loader related files.</li>
+<li>Kernel initrd, vmlinux, grub files are located under /boot</li>
+<li>For example: initrd.img-2.6.32-24-generic, vmlinuz-2.6.32-24-generic</li>
+</ul>
+
+
+<h3>12. /lib – System Libraries</h3>
+
+<ul>
+<li>Contains library files that supports the binaries located under /bin and /sbin</li>
+<li>Library filenames are either ld<em> or lib</em>.so.*</li>
+<li>For example: ld-2.11.1.so, libncurses.so.5.7</li>
+</ul>
+
+
+<h3>13. /opt – Optional add-on Applications</h3>
+
+<ul>
+<li>opt stands for optional.</li>
+<li>Contains add-on applications from individual vendors.</li>
+<li>add-on applications should be installed under either /opt/ or /opt/ sub-directory.</li>
+</ul>
+
+
+<h3>14. /mnt – Mount Directory</h3>
+
+<ul>
+<li>Temporary mount directory where sysadmins can mount filesystems.+</li>
+</ul>
+
+
+<h3>15. /media – Removable Media Devices</h3>
+
+<ul>
+<li>Temporary mount directory for removable devices.</li>
+<li>For examples, /media/cdrom for CD-ROM; /media/floppy for floppy drives; /media/cdrecorder for CD writer+</li>
+</ul>
+
+
+<h3>16. /srv – Service Data</h3>
+
+<ul>
+<li>srv stands for service.</li>
+<li>Contains server specific services related data.</li>
+<li>For example, /srv/cvs contains CVS related data.</li>
+</ul>
+
+
+<h2>PS: More about Linux file system</h2>
+
+<ul>
+<li><a href="http://www.tldp.org/LDP/intro-linux/html/sect_03_01.html">Introduction to Linux: General overview of the Linux file system</a></li>
+<li><a href="http://www.pathname.com/fhs/pub/fhs-2.3.html">Filesystem Hierarchy Standard</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">Wiki: Filesystem Hierarchy Standard</a></li>
+<li><a href="http://devmanual.gentoo.org/general-concepts/filesystem/index.html">Gentoo Development Guide: Filesystem</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2012/02/a_history_of_unix_directory_structure.html">Unix目录结构的来历</a></li>
+</ul>
+
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2013-07-24-reading_and_life" title="阅读与人生">阅读与人生</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2013-08-17-how_not_to_degenerate_in_china" title="在不健全的中国如何不堕落">在不健全的中国如何不堕落</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+

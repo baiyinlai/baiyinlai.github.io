@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>弹性力学三大方程</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">弹性力学三大方程</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2013-09-16</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#学习与提升">学习与提升</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#力学">力学&nbsp;&nbsp;</a><a href="/blog/tags.html#物理">物理&nbsp;&nbsp;</a><a href="/blog/tags.html#数学">数学&nbsp;&nbsp;</a><a href="/blog/tags.html#有限元">有限元&nbsp;&nbsp;</a></li>
+      
+    </ul>
+  </div>
+  <p>为了由弹性力学问题中的已知量求出未知量，必须建立这些已知量与未知量之间的关系，以及各个未知量之间的关系，从而导出一套求解的方程。在导出方程时，可以从三个方面来进行分析。一方面是静力学方面，由此建立应力、体力、面力之间的关系。另一方面是几何学方面，由此建立形变、位移和边界位移之间的关系。再一个是物理学方面，由此建立形变与应力之间的关系。</p>
+
+<h2>平衡方程</h2>
+
+<p>在 P 点附近取出一个微小的正平行六面体PACB，它在 x 和 y 方向的尺寸分为为 dx 和 dy，在 z 方向的尺寸为单位长度 1，此正平行六面体又称微元体，进行应力分析，如下图所示。</p>
+
+<p class="post_fig"><img src="/blog/media/elasticity-01.png" alt="微元体应力示意图" /></p>
+
+
+
+
+<p class="figcaption">图1 微元体应力示意图</p>
+
+
+<p>一般而论，应力分量是位置坐标 x 和 y 的函数，因此作用于左右两对面或上下两对面的应力分量不完全相同，而具有微小的差量。为了简化起见，对 AC，BC 的应力用泰勒展开式展开，然后省略二阶无穷小，可得如上图所示的各个应力的大小（或者利用微分可直接计算得到）。</p>
+
+<p>然后列出力矩平衡方程和受力分析。</p>
+
+<p>先是力矩平衡：</p>
+
+<p class="align_c"><img src="/blog/media/elasticity-02.png" alt="力矩平衡方程" /></p>
+
+
+<p>由力矩平衡方程可得剪应力互等定理，即：</p>
+
+<p class="align_c"><img src="/blog/media/elasticity-03.png" alt="剪应力互等定理" /></p>
+
+
+<p>根据受力分析，X 方向受力平衡，则：</p>
+
+<p class="align_c"><img src="/blog/media/elasticity-04.png" alt="X方向受力平衡" /></p>
+
+
+<p>化简得：</p>
+
+<p class="align_c"><img src="/blog/media/elasticity-05.png" alt="X方向受力平衡化简式" /></p>
+
+
+<p>Y 方向同理可得：</p>
+
+<p class="align_c"><img src="/blog/media/elasticity-06.png" alt="Y方向受力平衡化简式" /></p>
+
+
+<p>所以至此我们就建立了平面问题的平衡微分方程：</p>
+
+<p class="align_c"><img src="/blog/media/elasticity-07.png" alt="平面问题的平衡微分方程" /></p>
+
+
+<p>平衡方程中不含 E、μ，所以方程与材料性质无关，而且整个弹性体内都满足，包括边界。</p>
+
+<h2>几何方程</h2>
+
+<p class="post_fig"><img src="/blog/media/elasticity-08.png" alt="平面问题的平衡微分方程" /></p>
+
+
+<p>在平面问题中，讨论几何方程也就是讨论应变与位移的关系。</p>
+
+<p>首先考察P点邻域内线段的变形：</p>
+
+<p class="align_c"><img src="/blog/media/elasticity-09.png" alt="平面问题的平衡微分方程" /></p>
+
+
+<p>当然以上几个式子都用了taylor展开，忽略了二次以上的高阶项。又有 PA=dx，PB=dy。</p>
+
+<p>在推导公式之前，有必要解释几个概念，正应变，剪应变。何谓正应变，就我的理解，就是相对伸长与原长的比值。剪应变，就是某点两直角线段夹角的变化。</p>
+
+<p class="align_c"><img src="/blog/media/elasticity-10.png" alt="平面问题的平衡微分方程" /></p>
+
+
+<p>所以正应变的表达式就是如上所示，至于剪应变，同样可得，只是表达式略微复杂一点。</p>
+
+<p class="align_c"><img src="/blog/media/elasticity-11.png" alt="平面问题的平衡微分方程" /></p>
+
+
+<p>最后整理一下，我们就得到了平面应力问题的几何方程：</p>
+
+<p class="align_c"><img src="/blog/media/elasticity-12.png" alt="平面问题的平衡微分方程" /></p>
+
+
+<h2>物理方程</h2>
+
+<p>物理方程是根据胡克定律，没错，就是你高中时学过的发现弹簧的弹力f和弹簧的长度变化量x成正比的那个人。当然我们用到的是广义胡克定律，就是根据胡克定律和泊松比得出来的，推导的话就不写了，随便找本材料力学的书都会有写。</p>
+
+<p class="align_c"><img src="/blog/media/elasticity-13.png" alt="平面问题的平衡微分方程" /></p>
+
+
+
+
+<p class="align_c"><img src="/blog/media/elasticity-14.png" alt="平面问题的平衡微分方程" /></p>
+
+
+<p>以上的是三维的物理方程，二维的话只只需要三项：</p>
+
+<p class="align_c"><img src="/blog/media/elasticity-15.png" alt="平面问题的平衡微分方程" /></p>
+
+
+
+
+<p class="align_c"><img src="/blog/media/elasticity-16.png" alt="平面问题的平衡微分方程" /></p>
+
+
+<p>综上所述，弹性力学的基本未知量为三个位移分量，六个应力分量和六个应变分量，共计十五个未知量。基本方程为三个平衡微分方程，六个几何方程和六个物理方程，也是十五个基本方程。因此，可联立这些方程求解未知量。</p>
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2013-09-16-basic_assumptions_of_elasticity" title="弹性力学基本假设">弹性力学基本假设</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2013-09-17-plane_stress_and_plane_strain_of_elasticity" title="弹性力学中平面应力问题和平面应变问题">弹性力学中平面应力问题和平面应变问题</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+

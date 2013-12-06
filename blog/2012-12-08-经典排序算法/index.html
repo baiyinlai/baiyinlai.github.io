@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>经典排序算法</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">经典排序算法</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2012-12-08</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#学习与提升">学习与提升</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#编程语言">编程语言&nbsp;&nbsp;</a><a href="/blog/tags.html#C语言">C语言&nbsp;&nbsp;</a></li>
+      
+    </ul>
+  </div>
+  <p>排序，就是将无序元素经过一系列操作将其变为有序元素以方便后续处理的过程。排序操作是计算机编程中最常用的一种操作之一，因此被研究出了许多经典的排序算法，如快速排序、选择排序、冒泡排序等</p>
+
+<h3>快速排序（Quick Sort）</h3>
+
+<h4>基本思想</h4>
+
+<p><img src="/blog/media/quicksort.gif" alt="快速排序" title="快速排序" style="float:left;width:280;height:214;padding:0.5em;" /></p>
+
+<p>快速排序采用的思想是<b>分治</b>与<b>递归</b>。</p>
+
+<p>具体为：选取一个元素（理论上可以随便找一个元素，但为了简便起见一般选取第一个元素）作为基准（pivot），通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比基准元素都要小，而另外一部分的所有数据都要比基准元素大。然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</p>
+
+<h3>基本步骤</h3>
+
+<p>假设需要排序的数据为：<span class="blue">[4 2 5 6 1 7]</span>。</p>
+
+<p>第一次分治，使用 left 和 right 两个指针分别从“数组”的两边进行扫描，把比基准元素小的元素和比基准元素大的元素分开。</p>
+
+<ul>
+<li>Step1：选取基准元素为 4，先从 right 端开始扫描，7 大于 4，right 前移指向 1，1 小于 4，所以将 1 前移到基准元素 4 的位置,也即 left 所指的位置，然后 left 后移，此时数组变为：<span class="blue">[1 2 5 6 1 7]</span>。</li>
+<li>Step2：然后从 left 端开始扫描，比较 2 和 4，2 小于 4，left 后移指向 5，5 大于 4，所以将 5 后移到刚才 1 所移走的位置，也即 right 所指的位置，然后 right 前移，此时数组变为：<span class="blue">[1 2 5 6 5 7]</span>。</li>
+<li>Step3：再从 right 端开始扫描，比较 6 和 4，6 大于 4，right 前移，发现 right 等于 left，所以扫描结束，将基准元素放入 left 所指向的位置，此时数组变为：<span class="blue">[1 2 4 6 5 7]</span>。</li>
+</ul>
+
+
+<p>经过第一次分治，由基准元素将原“数组”分为两个“数组”：<span class="blue">[1 2]</span> 和 <span class="blue">[6 5 7]</span>，然后再利用上述过程对两个“数组”进行分治递归排序即可完成快速排序。</p>
+
+<h4>实现代码</h4>
+
+<pre><code>int v[N] = {...};
+left = 0;
+right = N -1;
+
+void
+quicksort (int v[], int left, int right) {
+    if (left &lt; right) {
+       int key = v[left];
+       int low = left;
+       int high = right;
+       while (low &lt; high) {
+           while (low &lt; high &amp;&amp; v[high] &gt;= key) {
+                 high--;
+           }
+           v[low] = v[high];
+           while (low &lt; high &amp;&amp; v[low] &lt;= key) {
+                 low++;
+           } 
+           v[high] = v[low];
+       }
+       v[low] = key;
+       quicksort(v,left,low-1);
+       quicksort(v,low+1,right);
+    }
+}
+</code></pre>
+
+<h4>效率分析</h4>
+
+<p>快速排序的时间主要耗费在划分操作上，对长度为 k 的区间进行划分，共需 k-1 次关键字的比较。</p>
+
+<p>最坏情况是每次划分选取的基准都是当前无序区中关键字最小(或最大)的记录，划分的结果是基准左边的子区间为空(或右边的子区间为空)，而划分所得的另一个非空的子区间中记录数目，仅仅比划分前的无序区中记录个数减少一个。时间复杂度为 O(n*n)</p>
+
+<p>在最好情况下，每次划分所取的基准都是当前无序区的"中值"记录，划分的结果是基准的左、右两个无序子区间的长度大致相等。总的关键字比较次数：O(nlgn)</p>
+
+<p>尽管快速排序的最坏时间为 O(n<sup>2</sup> )，但就平均性能而言，它是基于关键字比较的内部排序算法中速度最快者，快速排序亦因此而得名。它的平均时间复杂度为 O(nlgn)。</p>
+
+<br/>
+
+
+<h3>选择排序（Selection Sort）</h3>
+
+<p><img src="/blog/media/selectionsort.gif" alt="选择排序" title="选择排序" width="200px" height="200" style="float:right;padding:0.5em;" /></p>
+
+<h4>基本思想</h4>
+
+<p>选择排序，是一种简单直观的排序算法。具体思想为，首先直接从待排序的“数组”中选择最小（或最大）的元素，将其移动至“数组”起始位置（或末端位置），然后对剩下未排序的元素组成的“数组”重复前述过程直至所有元素都进行了排序。</p>
+
+<p>其演示图例如右图所示。</p>
+
+<h4>实现代码</h4>
+
+<pre><code>int v[N] = {...};
+
+void 
+selection_sort (int v[]) {
+    int i, j, k;
+    for (int i=0; i&lt;N; i++) {
+        k = i;
+        for (j=i+1; j&lt;N; j++) {
+            if(v[j] &lt; v[k])
+                k = j;
+        }       
+
+        int temp = v[i]; 
+        v[i] = v[k];
+        v[k]= temp;
+    }
+}
+</code></pre>
+
+<h4>效率分析</h4>
+
+<p>从选择排序的思想或者是上面的代码中，我们都不难看出，寻找最小的元素需要一个循环的过程，而排序又是需要一个循环的过程。因此显而易见，这个算法的时间复杂度也是 O(n*n)的。这就意味值在 n 比较小的情况下，算法可以保证一定的速度，当 n 足够大时，算法的效率会降低。并且随着 n 的增大，算法的时间增长很快。因此使用时需要特别注意。</p>
+
+<br/>
+
+
+<h3>冒泡排序（Bubble Sort）</h3>
+
+<h4>基本思想</h4>
+
+<p><img src="/blog/media/bubblesort.gif" alt="选择排序" title="选择排序" width="280px" height="237" style="float:right;padding:0.5em;" /></p>
+
+<p>冒泡排序也是一种简单有效的排序算法，其基本思想为：重复地遍历要排序的“数组”，一次比较“数组”中相邻元素的大小，若此相邻元素次序颠倒（即前大后小），则交换两元素的位置，直到走到“数组”末端，此过程称为“一次冒泡”。遍历数组的工作是重复地进行直到没有再需要交换，也就是说该数组已经排序完成。之所以叫“冒泡排序”是因为如果按照从前往后遍历的话，最大的元素经过一次冒泡操作会移动至“数组”的最末端，就像水中的气泡一样，会最终浮到水面上。</p>
+
+<p>其演示图例如右图所示。</p>
+
+<h4>基本步骤</h4>
+
+<ul>
+<li>Step1：比较相邻的元素，如果第一个比第二个大，就交换他们两个的位置。</li>
+<li>Step2：对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</li>
+<li>Step3：针对所有的元素重复以上的步骤，除了最后一个。</li>
+<li>Step4：持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
+</ul>
+
+
+<h4>实现代码</h4>
+
+<pre><code>int v[N] = {...};
+
+void 
+bubble_sort (int v[]) {
+    int i, j;
+int temp;
+    for (i = 0; i &lt; N - 1; i++) {
+        for (j = N - 1; j &gt; i; j--) {
+            if (v[j] &lt; v[j-1]) {
+               temp = v[j];
+               v[j] = v[j-1];
+               v[j-1] = temp;
+            }
+        }
+    }
+}    
+</code></pre>
+
+<h4>效率分析</h4>
+
+<p>因为每一趟排序都使有序区增加了一个气泡，在经过 n-1 趟排序之后，有序区中就有 n-1 个气泡，而无序区中气泡的重量总是大于等于有序区中气泡的重量，所以整个冒泡排序过程至多需要进行 n-1 趟排序。以此本算法的时间复杂度还是 O(n*n)，也不能算是一个高效的算法。</p>
+
+<p>细心分析不难发现，本算法还有可以优化的空间，若在某一趟排序中未发现气泡位置的交换，则说明待排序的无序区中所有气泡均满足轻者在上，重者在下的原则，因此，冒泡排序过程可在此趟排序后终止。为此， 在下面给出的算法中，引入一个布尔量exchange，在每趟排序开始前，先将其置为FALSE。若排序过程中发生了交换，则将其置为TRUE。各趟排序 结束时检查exchange，若未曾发生过交换则终止算法，不再进行下一趟排序。这样可以减少不必要的比较。改进的代码如下：</p>
+
+<pre><code>int v[N] = {...};
+
+void
+bubble_sort (int v[]) {
+    int i, j;
+int temp;
+bool exchange;
+    for (i = 0; i &lt; N - 1; i++) {
+            exchange = false;
+            for (j = N - 1; j &gt; i; j--) {
+                if (v[j] &lt; v[j-1]) {
+                   temp = v[j];
+                   v[j] = v[j-1];
+                   v[j-1] = temp;
+                   exchange = true;
+                }
+            }
+            if (!exchange){
+                    break;
+            }
+    }
+}
+</code></pre>
+
+<br/>
+
+
+<h3>插入排序（Insertion Sort）</h3>
+
+<h4>基本思想</h4>
+
+<p><img src="/blog/media/insertionsort.gif" alt="插入排序" title="插入排序" width="350px" height="237" style="float:right;padding:0.5em;" /></p>
+
+<p>插入排序就是一种简单直观的排序算法，这里的插入排序又称直接插入排序（因为希尔排序也是一种插入排序算法）。其基本思想是：每一步都将一个待排数据按其大小插入到已经排序的数据中的适当位置，直到全部插入完毕。其方法有点像打扑克牌时将刚抓取的新扑克按顺序插入到已抓取的扑克牌当中。</p>
+
+<h4>基本步骤</h4>
+
+<ul>
+<li><b>Step1：</b>从第一个元素开始，该元素可以认为已经被排序；</li>
+<li><b>Step2：</b>取出下一个元素，在已经排序的元素序列中从后向前扫描；</li>
+<li><b>Step3：</b>如果该元素（已排序）大于新元素，将该元素后移一位；</li>
+<li><b>Step4：</b>重复步骤3，直到找到已排序的元素小于或者等于新元素的位置；</li>
+<li><b>Step5：</b>将新元素插入到该位置中；</li>
+<li><b>Step6：</b>重复步骤2。</li>
+</ul>
+
+
+<h4>实现代码</h4>
+
+<pre><code>int array[N] = {...};
+
+void 
+insertion_sort (int array[])
+{
+    int i, j;
+    int temp;
+    for (i = 1; i &lt; N; i++) {
+        temp = array[i];
+        for (j = i; j &gt; 0 &amp;&amp; temp &lt; array[j-1]; j--) {
+            array[j] = array[j-1];
+        }
+        array[j] = temp;
+    }
+}
+</code></pre>
+
+<h4>效率分析</h4>
+
+<p>插入排序的思路很简单，很清晰，是一种最常见最简单的排序方法。但是可以看出，由于需要两层循环，外层循环 n-1 次，内层循环每次递增一次。当输入完全从小到大有序时，只需要常数的时间，这当然是最好的情况。但是我们不能期望输入，当输入完全逆序时，最坏的情况就出现了，显然时间复杂度是 O(n*n) 的。我们都很清楚，这个时间复杂度在排序中并不能算好的。这也是为什么插入排序虽然简单，但并没有被广泛应用的原因所在。其空间复杂度为 O(1)。</p>
+
+<br/>
+
+
+<h3>希尔排序（Shell Sort）</h3>
+
+<h4>基本思想</h4>
+
+<p><img src="/blog/media/shellsort.gif" alt="插入排序" title="插入排序" width="277px" height="344" style="float:right;padding:0.5em;" /></p>
+
+<p>希尔排序，也称递减增量排序算法，实质上是一种分组插入排序方法，是插入排序的一种高速而稳定的改进，因 Donald Shell 于1959年提出而得名。它是基于插入排序的以下两点行之而提出改进的：</p>
+
+<ul>
+<li>插入排序在对几乎已经排好序的数据操作时， 效率高， 即可以达到线性排序的效率；</li>
+<li>但插入排序一般来说是低效的，因为插入排序每次只能将数据移动一位。</li>
+</ul>
+
+
+<p>其基本思想为：通过将比较的全部元素分为几个区域分别进行插入排序来提升插入排序的性能，这样可以让一个元素一次性地朝最终位置前进一大步，然后再取越来越小的步长（或称增量）进行排序，算法的最后一步就是普通的插入排序，但是到了这步，需排序的数据几乎是已排好的了（此时插入排序较快）。</p>
+
+<p>一种简单有效的处理办法是，将原“数组"按顺序写成一个二维数组的形式，即每一行只有 d（步长值）个元素（最后一行除外），然后分别对每一列的所有元素进行插入排序。改变步长重复上述过程直至排序完成。</p>
+
+<p>步长序列的选取：步长的选择是希尔排序的重要部分。只要最终步长为 1 任何步长序列都可以工作。算法最开始以一定的步长进行排序。然后会继续以一定步长进行排序，最终算法以步长为1进行排序。当步长为 1 时，算法变为插入排序，这就保证了数据一定会被排序。<span class="blue">最常用的步长序列规则为每次减半，即第一次步长取“数组”总长度的一半，第二次取第一次步长的一半，以此类推直到步长为 1 为止</span>。</p>
+
+<p>根据<a href="http://zh.wikipedia.org/wiki/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F">维基百科</a>中介绍，已知的最好步长序列由 Marcin Ciura 设计（1，4，10，23，57，132，301，701，1750，…）。另一个在大数组中表现优异的步长序列是(斐波那契数列除去0和1将剩余的数以黄金分割比的两倍的幂进行运算得到的数列)：（1, 9, 34, 182, 836, 4025, 19001, 90358, 428481, 2034035, 9651787, 45806244, 217378076, 1031612713, …）。</p>
+
+<h4>基本步骤</h4>
+
+<ul>
+<li><b>Step1：</b>选择初始步长 d1，并将全部元素分为 d1 组，即距离为 d1 个元素的那些元素分为一组；</li>
+<li><b>Step2：</b>分别在各个组内利用直接插入排序进行组内排序；</li>
+<li><b>Step3：</b>如果步长不为 1，则选取比前次步长更小的步长 d2，并将全部元素分为 d2 组，重复步骤 2；</li>
+<li><b>Step4：</b>如果步长为 1，则对全部元素利用直接插入排序进行排序，完成整个“数组”的排序操作。</li>
+</ul>
+
+
+<h4>实现代码</h4>
+
+<pre><code>int array[N] = {...};
+
+void 
+shell_sort (int array[]) 
+{ 
+    int d, i, j, temp; 
+    for (d = N / 2; d &gt; 0; d =d / 2) { 
+        for (i = d; i &lt; N; i++) { 
+            temp = a[i]; 
+            for (j = i - d; j &gt;= 0 &amp;&amp; temp &lt; a[j]; j-=d) { 
+                a[j+d] = a[j]; 
+            } 
+            a[j+d] = temp; 
+        } 
+    }
+} 
+</code></pre>
+
+<h4>效率分析</h4>
+
+<p>希尔排序是基于插入排序的一种算法，在此算法基础之上增加了一个新的特性，提高了效率。希尔排序的时间复杂度为 O(N<em>(logN)<sup>2)，没有快速排序算法快</sup> O(N</em>(logN))，因此中等大小规模表现良好，对规模非常大的数据排序不是 最优选择。但是比O(N<sup>2</sup> ）复杂度的算法快得多。并且希尔排序非常容易实现，算法代码短而简单。此外，希尔算法在最坏的情况下和平均情况下执行效率相差不是很多，与此同时快速排序在最坏 的情况下执行的效率会非常差。专家们提倡，几乎任何排序工作在开始时都可以用希尔排序，若在实际使用中证明它不够快，再改成快速排序这样更高级的排序算法。</p>
+
+<p>我们知道一次插入排序是稳定的，不会改变相同元素的相对顺序，但是希尔排序是多次插入排序，在不同的插入排序过程中，相同的元素可能在各自的插入排序中移动，最后其稳定性就会被打乱，所以希尔排序是不稳定的。</p>
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2012-12-04-the_basic_usage_of_grep_in_linux" title="Linux 中 Grep 命令使用方法">Linux 中 Grep 命令使用方法</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2012-12-09-%E6%B5%85%E8%B0%88%E7%94%9F%E5%91%BD%E7%9A%84%E6%84%8F%E4%B9%89" title="浅谈生命的意义">浅谈生命的意义</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+

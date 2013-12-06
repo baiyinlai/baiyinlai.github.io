@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>Markdown 基本语法</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">Markdown 基本语法</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2012-10-28</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#学习与提升">学习与提升</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#网页设计">网页设计&nbsp;&nbsp;</a></li>
+      <li class="p_i_bg link"><a href="http://daringfireball.net/projects/markdown/" target="_blank">Markdown 官方主页</a></li>
+    </ul>
+  </div>
+  <h2>Markdown 基本介绍</h2>
+
+<p>Markdown 是一种轻量级的标记语言，文本到 HTML（text-to HTML）转换工具。利用 markdown 可以用一种易读易写的纯文本格式写作，然后将其转换为结构化标记语言 XHTML/HTML。 Markdown 首要的设计目标是使其成为可读性最大并可再发行的可输入输出格式。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 Setext、atx、Textile、reStructuredText、Grutatext 和 EtText，而最大灵感来源其实是纯文本电子邮件的格式。Markdown 允许使用 HTML 语法，所以使用者如果需要可以直接用 HTML 来表示。</p>
+
+<h2>基本语法</h2>
+
+<h3>段落</h3>
+
+<p>一个 Markdown 段落是由一个或多个连续的文本行组成，它的前后要有一个以上的空行（空行的定义是显示上看起来像是空的，便会被视为空行。比方说，若某一行只包含空格和制表符，则该行也会被视为空行）。普通段落不该用空格或制表符来缩进。</p>
+
+<h3>标题</h3>
+
+<p>在标题文字前面插入 1 到 6 个 #，对应到标题 1 到 6 阶，例如：</p>
+
+<pre><code># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+</code></pre>
+
+<h3>代码区块</h3>
+
+<p>和程序相关的写作或是标签语言原始码通常会有已经排版好的代码区块，通常这些区块我们并不希望它以一般段落文件的方式去排版，而是照原来的样子显示，Markdown 会用 &lt;pre> 和 &lt;code> 标签来把代码区块包起来。</p>
+
+<p>要在 Markdown 中建立代码区块很简单，只要简单地缩进 4 个空格或是 1 个制表符就可以，而这个每行一阶的缩进（4 个空格或是 1 个制表符），都会被移除，一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）。例如，下面的输入：</p>
+
+<pre><code> 这是一个普通段落：
+     这是一个代码区块。
+</code></pre>
+
+<p>Markdown 会转换成：</p>
+
+<pre><code> &lt;p&gt;这是一个普通段落：&lt;/p&gt;
+ &lt;pre&gt;&lt;code&gt;这是一个代码区块。
+ &lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+
+<p>在代码区块里面， &amp; 、 &lt; 和 > 会自动转成 HTML 实体。</p>
+
+<p>例如一段 C 语言经典程序如下所示：</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf ("Hello, world!\n");
+    return 0;
+}
+</code></pre>
+
+<p><strong>行内代码</strong>用 <kbd>`</kbd> （波浪号键下方的符号）表示。</p>
+
+<p>示例：</p>
+
+<pre><code>C 语言中的打印输出函数为 `printf()` 。
+</code></pre>
+
+<p>显示效果为：</p>
+
+<p>C 语言中的打印输出函数为 <code>printf()</code>。</p>
+
+<h3>引用</h3>
+
+<p>行首使用 <kbd>></kbd> 加上一个空格表示引用段落，内部可以嵌套多个引用。</p>
+
+<p>示例：</p>
+
+<blockquote><p>骄傲使人进步，谦虚使人退步。——我 ^_^</p></blockquote>
+
+<h3>列表</h3>
+
+<p><strong>无序列表</strong>使用 <kbd>*</kbd>、<kbd>+</kbd>、<kbd>-</kbd> 后面加上空格来表示。</p>
+
+<p>示例：</p>
+
+<pre><code>* 列表1
+* 列表1
+
++ 列表1
++ 列表2
+
+- 列表1
+- 列表2
+</code></pre>
+
+<p>显示效果为：</p>
+
+<ul>
+<li>列表1</li>
+<li><p>列表1</p></li>
+<li><p>列表1</p></li>
+<li><p>列表2</p></li>
+<li><p>列表1</p></li>
+<li>列表2</li>
+</ul>
+
+
+<p><strong>有序列表</strong>使用英文数字加英文点号（句号）后面加上空格来表示。</p>
+
+<p>示例：</p>
+
+<pre><code>1. 列表1
+2. 列表2
+</code></pre>
+
+<p>显示效果为：</p>
+
+<ol>
+<li>列表1</li>
+<li>列表2</li>
+</ol>
+
+
+<h3>强调</h3>
+
+<p>使用星号 <kbd>*</kbd> 或下划线 <kbd>_</kbd> 表示强调。</p>
+
+<p>示例：</p>
+
+<pre><code>单星号 = *斜体*
+单下划线 = _斜体_
+双星号 = **加粗**
+双下划线 = __加粗__
+</code></pre>
+
+<p>显示效果：</p>
+
+<p>单星号 = <em>斜体</em></p>
+
+<p>单下划线 = <em>斜体</em></p>
+
+<p>双星号 = <strong>加粗</strong></p>
+
+<p>双下划线 = <strong>加粗</strong></p>
+
+<h3>链接</h3>
+
+<p>Markdown 支持两种风格的链接：Inline 和 Reference。</p>
+
+<p><strong>Inline：</strong>以中括号标记显示的链接文本，后面紧跟用小括号包围的链接。如果链接有 title 属性，则在链接中使用空格加“title属性”。</p>
+
+<p><strong>Reference：</strong>一般应用于多个不同位置使用相同链接。通常分为两个部分，调用部分为 <kbd>[链接文本][ref]</kbd>；定义部分可以出现在文本中的其他位置，格式为 <kbd>[ref]: http://some/link/address (可选的标题)</kbd>。值得注意的是在 ref 中不区分大小写。</p>
+
+<p>示例：</p>
+
+<pre><code>这个一个 Inline 示例：[链接1](http://baige5117.github.io/ "可选的 title")。
+这个一个 Reference 示例：[链接2][ref]。
+[ref]:http://baige5117.github.io/
+</code></pre>
+
+<p>显示效果：</p>
+
+<p>这个一个 Inline 示例：<a href="http://baige5117.github.io/" title="可选的 title">链接1</a>。</p>
+
+<p>这个一个 Reference 示例：<a href="http://baige5117.github.io/">链接2</a>。</p>
+
+<h3>图片</h3>
+
+<p>图片的使用方法基本上和链接类似，只是在中括号前加<strong>叹号</strong>。不过由于不能设置图片的大小和样式，所以一般直接使用 HTML 中的 <kbd>img</kbd> 标签。</p>
+
+<p>示例：</p>
+
+<pre><code>Inline 示例：![替代文本](/images/icons/github-24.png "可选的 title")
+Reference示例：![替代文本][pic]
+[pic]: /images/icons/github-24.png "可选的 title"
+HTML示例：&lt;img src="/images/about.jpg" alt="替代文本" title="标题文本" width="200px" /&gt;
+</code></pre>
+
+<p>显示效果：</p>
+
+<p>Inline 示例：<img src="/images/icons/github-24.png" title="可选的 title" alt="替代文本" /></p>
+
+<p>Reference示例：<img src="/images/icons/blog_badge.png" title="可选的 title" alt="替代文本" /></p>
+
+<p>HTML示例：<img src="/images/about.jpg" alt="替代文本" title="标题文本" width="200px" /></p>
+
+<h3>其它</h3>
+
+<h4>自动链接</h4>
+
+<p>使用尖括号，可以为输入的 URL 或者邮箱自动创建链接。如 <a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#116;&#x65;&#x73;&#116;&#64;&#x64;&#x6f;&#109;&#97;&#105;&#110;&#46;&#99;&#x6f;&#x6d;">&#x74;&#x65;&#115;&#x74;&#64;&#100;&#x6f;&#x6d;&#97;&#105;&#x6e;&#46;&#99;&#111;&#x6d;</a>。</p>
+
+<h4>分割线</h4>
+
+<p>在一行中使用三个或三个以上的星号 <kbd>*</kbd>、减号 <kbd>-</kbd> 或下划线 <kbd>_</kbd> 可以添加分隔线，其中可以有空白，但是不能有其他字符。例如：</p>
+
+<hr />
+
+<h2>Markdown 中特殊字符汇总</h2>
+
+<p>Markdown 中存在很多特殊字符，这些特殊字符都有特定的作用，要使用这些特殊字符本身，需要使用转义字符进行转义处理，转义格式为 <kbd>\特殊字符</kbd>。常用的特殊字符有：</p>
+
+<p><kbd>#</kbd>——标题</p>
+
+<p><kbd>+</kbd>（或单个 <kbd>*</kbd>）——列表</p>
+
+<p><kbd>*……*</kbd>——斜体</p>
+
+<p><kbd>\</kbd>——转义特殊字符用</p>
+
+<p><kbd>*</kbd>——星号，列表，加粗或强调</p>
+
+<p><kbd>`</kbd>——行内代码</p>
+
+<p><kbd>!</kbd>——图片</p>
+
+<p><kbd>-</kbd>——列表</p>
+
+<p><kbd>_</kbd>——下划线，加粗或斜体</p>
+
+<p><kbd>[</kbd>、<kbd>]</kbd>——中括号</p>
+
+<p><kbd>{</kbd>、<kbd>}</kbd>——大括号</p>
+
+<p><kbd>(</kbd>、<kbd>)</kbd>——小括号</p>
+
+<h3>参考链接</h3>
+
+<ul>
+<li><a href="http://daringfireball.net/projects/markdown/">Markdown 官方主页</a></li>
+<li><a href="http://wowubuntu.com/markdown/">Markdown 语法中文简体翻译</a></li>
+<li><a href="http://www.ituring.com.cn/article/504">Markdown 语法说明</a></li>
+</ul>
+
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2012-10-27-RMS-personal-ad" title="理查德·斯托曼的征婚启事">理查德·斯托曼的征婚启事</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2012-10-30-10-thought-experiments" title="历史上十个最著名的思想实验">历史上十个最著名的思想实验</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+

@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>博客写作过程中常用的自定义格式</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">博客写作过程中常用的自定义格式</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2013-03-26</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#学习与提升">学习与提升</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#写作">写作&nbsp;&nbsp;</a><a href="/blog/tags.html#博客">博客&nbsp;&nbsp;</a></li>
+      
+    </ul>
+  </div>
+  <p>本博客的所有文章均用 markdown 语言完成，在写作过程中，难免会遇到一些格式上的问题，因此将逐渐积累并整理一些常用的写作格式，比如代码片段、引用语等。</p>
+
+<h4>引用语的书写格式</h4>
+
+<p>两种格式：markdown 的格式和 html 的 &lt;blockquote>&lt;/blockquote> 标签格式。</p>
+
+<p>当引用语没有引用出处时，直接利用 markdown 格式比较方便，在文本编辑器中直接输入一下内容即可：</p>
+
+<pre><code>&gt; 这是引用语内容
+</code></pre>
+
+<p>输出结果为：</p>
+
+<blockquote><p>这是引用语内容</p></blockquote>
+
+<p>当引用语有出处时，要使用自定义的 html 标签 blockquote 样式，在文本编辑器中直接输入一下内容：</p>
+
+<pre><code>&lt;blockquote&gt;Life was like a box of chocolates, you never know what you're gonna get.&lt;span class="quote_src"&gt;Forrest Gump&lt;/span&gt;&lt;/blockquote&gt;
+</code></pre>
+
+<p>输出结果为：</p>
+
+<blockquote> Life was like a box of chocolates, you never know what you're gonna get. <span class="quote_src"> Forrest Gump </span></blockquote>
+
+
+<h4>命令行工具名称、选项等特殊格式</h4>
+
+<p>使用 &lt;kbd>&lt;/kbd> 标签：</p>
+
+<pre><code>&lt;kbd&gt;emerge&lt;/kbd&gt;
+</code></pre>
+
+<p>输出：</p>
+
+<p><kbd>emerge</kbd></p>
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2013-03-26-mind_reader" title="吉普赛人古老的神奇读心术">吉普赛人古老的神奇读心术</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2013-03-27-%E7%94%9F%E5%91%BD%E7%9A%84%E6%84%8F%E4%B9%89" title="生命的意义">生命的意义</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+

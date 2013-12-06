@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>CSS伪类选择器</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">CSS伪类选择器</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2012-11-07</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#学习与提升">学习与提升</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#网页设计">网页设计&nbsp;&nbsp;</a><a href="/blog/tags.html#CSS">CSS&nbsp;&nbsp;</a></li>
+      
+    </ul>
+  </div>
+  <h3>基本介绍</h3>
+
+<p>CSS3 的伪类选择器有多，本文仅讨论状态伪类选择器——:hover、:active、:focus。这些选择器都有一个共同的特征名那就是定义的样式只有当元素处于某种状态下时才起作用，在默认状态下无效。</p>
+
+<ul>
+<li>:hover选择器：当鼠标悬停在所指定的元素上时所使用的样式；</li>
+<li>:active选择器：当所指定的元素处于激活状态（鼠标在元素上按下还没有松开）时所使用的样式；</li>
+<li>:focus选择器：当元素获得光标焦点时使用的样式，主要用在文本框输入文字时使用；</li>
+</ul>
+
+
+<p>状态选择器最常用的地方就是<b>链接</b>和<b>输入框</b>了。其中的 :focus 伪选择器主要用在键盘操作者进行页面的访问，利用 Tab 键即可查看到当某链接为选定的链接后的效果。</p>
+
+<h3>一种现象</h3>
+
+<p>在 IE 以及 Firefox 浏览器下，默认情况下，点击链接文字或图片（特指a标签下的）时，链接的周围会出现一个虚线框，当鼠标移开，或点击页面其它地方后，此虚线框就消失。</p>
+
+<p>此虚线框对一部分用户来说，尤其是键盘使用爱好者或不得不用键盘的使用者，用处是显而易见的，因为可以直接利用键盘上的 Tab 键在不同的链接之间切换，当切换到某个链接上时，此链接周围就会出现虚线框。没有了此虚线框，对于这些用户来说，网页内容就像一篇纯文本文档，失去了网页的超链接的无穷乐趣。</p>
+
+<p>但是，对于一些应用场合，此虚线框的出现就会严重影响美观程度，试想当点击一张图片准备切换另一张图片时，在图片中间出现一个虚线框，者给图片的欣赏带来很大的影响。此时，就应该在相关的链接上做适当设置，使此虚线框消失，或变的不明显。</p>
+
+<h3>解决出现虚线框的办法</h3>
+
+<h4>消除虚线框</h4>
+
+<p>消除虚线框其实很简单，只需要对链接的 outline 属进行相关设置即可。哪到底是对链接标签选择器 a 进行设置，还是对伪类选择器 :hover、:active、:focus 进行设置呢？当然，最好不要直接对标签选择器 a 进行设置，因为这也太绝对化了，直接把所有链接的虚线框都给屏蔽掉了，也就直接把键盘用户给排除掉了，所以最好还是对伪类选择器进行设置。由上文可知 :focus 伪类只要是用于处理聚焦区域的显示，尤其是针对键盘事件的响应，因为键盘切换的原理就是让链接内容获取焦点(focus)的，那么是否应该对此伪类选择器进行设置？即：</p>
+
+<pre><code>a:focus {outline: none;}
+</code></pre>
+
+<p>但消除聚焦区域的虚线框对于普通用户来说可以很好的解决，但是对于键盘用户仍然无法定位到正确的连接上，从而无法访问链接。</p>
+
+<p>经网上查询，有人做了总结性文章：<a href="http://blog.csdn.net/liujiajie1990/article/details/7971355">《CSS-鼠标点击去除外边虚线键盘焦点加上》</a>，称最好将 :active 的 outline 属性进行设置：</p>
+
+<pre><code>a:active {outline: none;}
+</code></pre>
+
+<p>这样效果或许会好点，虽然在一定的场合虚线框还会出现。</p>
+
+<h4>是虚线框表现的不明显</h4>
+
+<pre><code> a:focus { background-color:#f00; }   
+ /*或者*/  
+ a:hover, a:focus {text-decoration:underline;}  
+</code></pre>
+
+<p>设置焦点被触发时，链接背景为红色等。当然可以根据需要设计出更加复杂的样式，更可以把focus和hover设置成同样的样式。</p>
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2012-11-02-old-Chinese-fable-blessing-in-disguise" title="Blessing in disguise | 塞翁失马，焉知非福">Blessing in disguise | 塞翁失马，焉知非福</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2012-11-07-notes_of_JavaScript" title="JavaScript 学习笔记">JavaScript 学习笔记</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+

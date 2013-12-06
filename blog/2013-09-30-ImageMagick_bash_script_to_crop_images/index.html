@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>利用 ImageMagick 和 Bash 脚本批量剪裁图片</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">利用 ImageMagick 和 Bash 脚本批量剪裁图片</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2013-09-30</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#学习与提升">学习与提升</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#编程语言">编程语言&nbsp;&nbsp;</a><a href="/blog/tags.html#脚本">脚本&nbsp;&nbsp;</a><a href="/blog/tags.html#批处理">批处理&nbsp;&nbsp;</a></li>
+      
+    </ul>
+  </div>
+  <h2>任务描述</h2>
+
+<p>对某一个目录里面的所有图片文件进行剪裁，使得到的图片具有相同的尺寸。</p>
+
+<h2>脚本程序</h2>
+
+<pre><code>#! /bin/bash 
+
+for f in `ls $1` 
+do 
+   convert "$1/$f" -crop WidthxHeight+X0+Y0  "$2/$f"
+done
+</code></pre>
+
+<h2>程序解释</h2>
+
+<p>首先利用 ls 命令列出原始图片目录的所有文件名称，此时会得到一个文件名称列表，然后利用 for 循环逐个将列表中的文件名称赋值给循环变量 f，此时 f 就代表原始图片目录中的图片文件。最后就是利用 ImageMagick 工具中的 convert 转换命令对每个图片文件进行剪切处理，并将其保存到剪切图片目录中，文件名称不变。</p>
+
+<p>程序中需要设置 4 个参数：Width-宽度像素值、Height-高度像素值、X0-偏离图片左上角点的横向位移、Y0-偏离图片左上角点的纵向位移。</p>
+
+<h2>注意事项</h2>
+
+<p>通过程序中的四个参数可以发现，每个图片都是以左上角点为参考点进行剪裁的，因此要求每张图片中的内容的分布都要一致。</p>
+
+<h2>应用举例</h2>
+
+<p>在扫描书籍时，扫描得到的图片中扫面背景要比实际的书籍内容大，因此需要将图片中多余的背景剪裁掉。</p>
+
+<p>例如在当前目录中的 Pictures 目录中存在 100 张大小为 1000x600 pixels 的图片，需要将其剪裁至大小为 800x500 pixels 的图片，并保存至当前目录中的 Crop 目录中。</p>
+
+<p>首先，在当前目录中创建 crop.sh 脚本文件并添加以下内容：</p>
+
+<pre><code>#! /bin/bash 
+
+for f in `ls $1` 
+do 
+   convert "$1/$f" -crop 800x500+0+0  "$2/$f"
+done
+</code></pre>
+
+<p>然后，添加可执行权限：</p>
+
+<pre><code># chmod +x crop.sh
+</code></pre>
+
+<p>最后，在终端中执行：</p>
+
+<pre><code># ./crop.sh Pictures Crop
+</code></pre>
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2013-09-28-reverse_engineering_basic_steps_and_key_techniques" title="逆向工程基本步骤与关键技术">逆向工程基本步骤与关键技术</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2013-09-30-file_batch_rename_with_bash_script" title="文件批量重命名 Bash 脚本">文件批量重命名 Bash 脚本</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+

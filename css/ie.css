@@ -1,0 +1,29 @@
+
+#fotos_nav2 li a:link, #fotos_nav2 li a:visited , #fotos_nav2 li a:active {
+background-image:url("/images/icons/pix.gif");
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/icons/nav_bg.png", sizingMethod="scale");
+}
+#fotos_nav2 li a:hover, #fotos_nav2 li a#selectat { background-image: none !important; filter: none !important; }
+
+#foto_inapoi {
+background-image:url("/images/icons/pix.gif");
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/icons/up.png", sizingMethod="scale");
+}
+#foto_inainte { 
+background-image:url("/images/icons/pix.gif");
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/icons/down.png", sizingMethod="scale");
+}
+
+.select_iframe {
+  display:none;/*sorry for IE5*/
+  display/**/:block;/*sorry for IE5*/
+  position:absolute;/*must have*/
+  top:0;/*must have*/
+  left:0;/*must have*/
+  z-index:-1;/*must have*/
+  filter:mask();/*must have*/
+  width:3000px;/*must have for any big value*/
+  height:3000px/*must have for any big value*/;
+}
+
+#footer {height: 1px; }

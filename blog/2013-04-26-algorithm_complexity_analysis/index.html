@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>算法时间复杂度分析</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">算法时间复杂度分析</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2013-04-26</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#学习与提升">学习与提升</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#程序设计">程序设计&nbsp;&nbsp;</a><a href="/blog/tags.html#学习笔记">学习笔记&nbsp;&nbsp;</a></li>
+      
+    </ul>
+  </div>
+  <p>程序 P 所需时间 T(P) 是其编译时间和运行（或执行）时间的总和。由于编译时间不依赖于问题实例的特征（比如问题规模），所以编译时间一般都是固定的。此外，一旦已经证实了程序可以正常运行，就可以多次执行而不需要重新编译，所以，真正关心的是程序的执行时间。</p>
+
+<p>但是确定程序的执行时间也不是一件容易的事，因为它受多方面的影响，比如说硬件、软件平台等，相同的算法在不同的硬件机器上执行，所消耗的时间是不同的。即使是在同一台机器上，一个算法在不同的时间执行，所消耗的时间也是不同的（当某个时刻计算机系统待处理的任务比较多时，这个时刻算法执行消耗的时间相对于计算机系统待处理任务较少时，所用的时间可能会多些）。我们使用“时间复杂度”并不是为了计算算法执行所消耗的时间，而是用于评定不同的算法之间在时间成本上，那个消耗的时间理论上少些，那个多些。对于某一具体问题的不同算法 A 和 B，经过“时间复杂度”的理论分析，通常情况下，如果算法 A 在时间成本上比算法 B 消耗的时间要少，那么在实际运行中算法 A 的执行会比算法 B 快。注意这里是<strong>通常情况下</strong>的结果，因为毕竟实际情况比较复杂，而且任何情况都有特殊的时候，但是，就平均上而言，特殊毕竟是少数，大部分都是正常情况的，所以时间复杂度的理论分析和实际的运行效果都是一致的。因此，算法的时间复杂度分析对于程序的评估具有非常重要的作用。</p>
+
+<h3>一些术语</h3>
+
+<h4>算法的消耗时间</h4>
+
+<p>一个算法执行所消耗的时间等于算法中所有语句执行的时间之和。</p>
+
+<h4>单位时间</h4>
+
+<p>如果我们不考虑机器的软，硬件差别，假定语句执行一次所消耗的时间一样，并把语句执行一次所消耗的时间定义为<strong>单位时间</strong>。这样的假定有助于我们理解，并能把问题集中在需要考虑的地方。</p>
+
+<h4>语句频度</h4>
+
+<p>语句频度是指算法中语句的执行次数。</p>
+
+<p>那么，算法中每条语句的执行时间 ＝ 该语句的执行次数(语句频度) * 单位时间</p>
+
+<p>所以，一个算法执行所消耗的时间 = 算法中所有语句的语句频度 * 单位时间</p>
+
+<p>例如，求两个 n 阶方阵 C=A*B 的乘积，其算法如下：</p>
+
+<pre><code>void MatrixMultiply (int A[n][n]，int B[n][n]，int C[n][n])
+{
+   for(i=0; i &lt; n; i++)    //1+(n+1)+n
+   {
+      for (j=0;j &lt; n; j++)    //n*(1+(n+1)+n)
+  {
+     C[i][j]=0;           //n^2
+     for (k=0; k &lt; n; k++)    //n^2 * (1+(n+1)+n)
+     {
+        C[i][j]=C[i][j]+A[i][k]*B[k][j]; //n^3
+     }
+  }
+   }
+}
+</code></pre>
+
+<p>则算法所有语句的频度之和为：</p>
+
+<p>T(n) = 3n<sup>3</sup> + 5n<sup>2</sup> + 4n + 2</p>
+
+<p>算法的执行时间 = T(n) * 单位时间。设单位时间为 1, 则算法执行时间等于 T(n)。可以看出法 MatrixMultiply 的执行时间 T(n) 是一个关于矩阵阶数 n 的函数。</p>
+
+<h4>问题规模</h4>
+
+<p>在上面的算法执行时间 T(n) 是一个关于 n 的函数，n 称为"问题规模"。"问题规模"(这里是 n )与算法的执行次数有关，在上面的例子中，n 越大，算法的执行次数越多。一般情况下，算法中基本操作重复执行的次数是问题规模 n 的某个函数，用 T(n) 表示。</p>
+
+<h4>渐进时间复杂度</h4>
+
+<p>对于语句频度 T(n)，若有某个辅助函数 f(n)，使得当 n 趋近于无穷大时，T(n)/f(n) 的极限值为不等于零的常数，则称 f(n) 是 T(n) 的同数量级函数，记作 T(n) = O(f(n))，称 O(f(n)) 为算法的渐进时间复杂度( O 是数量级的符号)，它表示随问题规模n的增大，算法执行时间的增长率和f(n)的增长率相同。渐进时间复杂度就是我们常说的时间复杂度。</p>
+
+<p>对于上面的 MatrixMultiply 算法来说，其算法频度为：T(n)=2n<sup>3</sup> + 3n<sup>2</sup> + 2n + 1，可以很容易的得出，f(n)=n<sup>3</sup> ，因此，此算法的时间复杂度为 O( n<sup>3</sup> )。</p>
+
+<h4>最坏时间复杂度</h4>
+
+<p>最坏情况下的时间复杂度称最坏时间复杂度。算法的时间复杂度不仅与语句频度有关，还与问题规模及输入实例中各元素的取值有关。一般不特别说明，讨论的时间复杂度均是最坏情况下的时间复杂度。这就保证了算法的运行时间不会比任何更长。</p>
+
+<h3>时间复杂度的计算步骤</h3>
+
+<ol>
+<li><p>计算出算法中基本操作的总的执行次数，即算法的频度 T(n)。</p></li>
+<li><p>计算出 T(n) 的数量级</p>
+
+<p>求 T(n) 的数量级，只要将 T(n) 进行以下一些操作：忽略常量、低次幂以及最高次幂的系数。令 f(n)=T(n) 的数量级。</p></li>
+<li><p>用大 O 来表示时间复杂度</p></li>
+</ol>
+
+
+<p>当 n 趋近于无穷大时，如果 lim(T(n)/f(n)) 的值为不等于 0 的常数，则称 f(n) 是 T(n) 的同数量级函数。记作 T(n)=O(f(n))。</p>
+
+<h3>一些示例</h3>
+
+<pre><code>int num1, num2;
+for(int i=0; i&lt;n; i++) { 
+  num1 += 1;
+  for(int j=1; j&lt;=n; j*=2) { 
+     num2 += num1;
+  }
+}
+</code></pre>
+
+<p>分析：</p>
+
+<p>1、计算算法的频度 T(n)</p>
+
+<p>语句 <code>int num1, num2;</code> 的频度为 1；</p>
+
+<p>语句 <code>i=0;</code> 的频度为 1；</p>
+
+<p>语句 <code>i&lt;n;i++; num1+=1; j=1;</code> 的频度为 n（事实上，语句 <code>i&lt;n;</code> 的频度为 n+1，下同）；</p>
+
+<p>语句 <code>j&lt;=n; j*=2; num2+=num1;</code> 的频度为 n*log2n；</p>
+
+<p>因此，T(n) = 2 + 4n + 3n*log2n</p>
+
+<p>2、计算出 T(n) 的数量级</p>
+
+<p>忽略掉 T(n) 中的常量、低次幂和最高次幂的系数，得：f(n) = n*log2n。</p>
+
+<p>3、用大 O 来表示时间复杂度</p>
+
+<p>lim(T(n)/f(n)) = (2+4n+3n*log2n) / (n*log2n) = 2*(1/n)*(1/log2n) + 4*(1/log2n) + 3</p>
+
+<p>当 n 趋向于无穷大，1/n 趋向于 0，1/log2n 趋向于 0，所以极限等于 3。</p>
+
+<p>因此，T(n) = O(n*log2n)。</p>
+
+<h3>时间复杂度计算的简化步骤</h3>
+
+<p>由上例分析可以看出，决定算法复杂度的是执行次数最多的语句，这里是 num2 += num1，一般也是最内循环的语句。于是，以上步骤可以简化为：</p>
+
+<ol>
+<li><p>找到执行次数最多的语句；</p></li>
+<li><p>计算该语句执行次数的数量级；</p></li>
+<li><p>用大O来表示结果。</p></li>
+</ol>
+
+
+<p>继续以上述算法为例，进行分析：</p>
+
+<p>1、执行次数最多的语句为 num2 += num1。</p>
+
+<p>2、T(n) = n*log2n，f(n) = n*log2n。</p>
+
+<p>3、lim(T(n)/f(n)) = 1，T(n) = O(n*log2n)。</p>
+
+<h3>一些计算规则</h3>
+
+<p>1）<strong>加法规则</strong>。T(n,m) = T1(n) + T2(m) = O (max ( f(n), g(m) )</p>
+
+<p>2）<strong>乘法规则</strong>。T(n,m) = T1(n) * T2(m) = O (f(n) * g(m))</p>
+
+<p>3）<strong>特例</strong>。在大 O 表示法里面有一个特例，如果 T1(n) ＝ O(c)， c 是一个与 n 无关的任意常数，T2(n) = O ( f(n) ) 则有 T(n) = T1(n) * T2(n) = O ( c*f(n) ) = O( f(n) )。</p>
+
+<p>也就是说，在大O表示法中，任何非0正常数都属于同一数量级，记为O(1)。</p>
+
+<h3>常见的时间复杂度</h3>
+
+<p>常见的时间复杂度依次为：常数阶O(1)、对数阶O(log2n)、线性阶O(n)、线性对数阶O(nlog2n)、平方阶O(n<sup>2</sup> )、立方阶O(n<sup>3</sup> )、k次方阶O(n<sup>k</sup> )、指数阶O(2<sup>n</sup> )。</p>
+
+<p>它们的效率关系为：</p>
+
+<p>c &lt; log2n &lt; n &lt; n*log2n &lt; n<sup>2</sup> &lt; n<sup>3</sup> &lt; 2<sup>n</sup> &lt; 3<sup>n</sup> &lt; n! （c是一个常量）</p>
+
+<p>较好的复杂度为前四个，后三个较差，稍微大一些的 n 就会令这个算法几乎停滞。</p>
+
+<h4>几个常见复杂度示例</h4>
+
+<p><strong>O(1)</strong></p>
+
+<p>交换 i 和 j 的内容：</p>
+
+<pre><code>temp=i;
+i=j;
+j=temp;                    
+</code></pre>
+
+<p>以上三条单个语句的频度为 1，该程序段的执行时间是一个与问题规模 n 无关的常数。算法的时间复杂度为常数阶，记作 T(n)=O(1)。如果算法的执行时间不随着问题规模 n 的增加而增长，即使算法中有上千条语句，其执行时间也不过是一个较大的常数。此类算法的时间复杂度是 O(1)。</p>
+
+<p><strong>O(n)</strong></p>
+
+<pre><code>a=0;
+b=1;
+for (i=1;i&lt;=n;i++) {  
+  s=a+b;
+  b=a;  
+  a=s;
+}
+</code></pre>
+
+<p>一般单个循环的复杂度为 O(n)。</p>
+
+<p><strong>O(long2n)</strong></p>
+
+<pre><code>i=1;
+while (i&lt;=n)
+  i=i*2;
+</code></pre>
+
+<p><strong>O(n<sup>2</sup> )</strong></p>
+
+<pre><code>sum=0;
+for(i=1;i&lt;=n;i++)      
+   for(j=1;j&lt;=n;j++) 
+     sum++；
+</code></pre>
+
+<p>一般双层循环的复杂度为 O(n<sup>2</sup> )。</p>
+
+<p><strong>O(n<sup>3</sup> )</strong></p>
+
+<pre><code>for(i=0;i&lt;n;i++)
+{  
+  for(j=0;j&lt;i;j++)  
+  {
+     for(k=0;k&lt;j;k++)
+        x=x+2;  
+  }
+}
+</code></pre>
+
+<p>一般三层循环的复杂度为 O(n<sup>3</sup> )。</p>
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2013-04-25-aria2-hight-speed-download-tool" title="aria2：高速下载工具">aria2：高速下载工具</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2013-05-10-LiJiacheng_speech" title="打工是最愚蠢的投资">打工是最愚蠢的投资</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+

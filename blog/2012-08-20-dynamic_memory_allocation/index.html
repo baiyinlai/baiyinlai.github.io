@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>C 语言动态内存分配</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">C 语言动态内存分配</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2012-08-20</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#学习与提升">学习与提升</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#学习笔记">学习笔记&nbsp;&nbsp;</a><a href="/blog/tags.html#C语言">C语言&nbsp;&nbsp;</a><a href="/blog/tags.html#编程语言">编程语言&nbsp;&nbsp;</a></li>
+      
+    </ul>
+  </div>
+  <h2>基本信息</h2>
+
+<p>所谓动态内存分配就是指在程序执行的过程中动态地分配或者回收存储空间的分配内存的方法。动态内存分配不像数组等静态内存分配方法那样需要预先分配存储空间，而是由系统根据程序的需要即时分配，且分配的大小就是程序要求的大小。</p>
+
+<h2>详细释义</h2>
+
+<p>例如我们定义一个 float 型数组：</p>
+
+<pre><code>float score[100]; 
+</code></pre>
+
+<p>但是，在使用数组的时候，总有一个问题困扰着我们：数组应该有多大？在很多的情况下，你并不能确定要使用多大的数组，比如上例，你可能并不知道我们要定义的这个数组到底有多大，那么你就要把数组定义得足够大。这样，你的程序在运行时就申请了固定大小的你认为足够大的内存空间。即使你知道你想利用的空间大小，但是如果因为某种特殊原因空间利用的大小有增加或者减少，你又必须重新去修改程序，扩大数组的存储范围。这种分配固定大小的内存分配方法称之为<strong>静态内存分配</strong>。但是这种内存分配的方法存在比较严重的缺陷，特别是处理某些问题时：在大多数情况下会浪费大量的内存空间，在少数情况下，当你定义的数组不够大时，可能引起下标越界错误，甚至导致严重后果。</p>
+
+<p>我们用动态内存分配就可以解决上面的问题. 所谓<strong>动态内存分配</strong>就是指在程序执行的过程中动态地分配或者回收存储空间的分配内存的方法。动态内存分配不象数组等静态内存分配方法那样需要预先分配存储空间，而是由系统根据程序的需要即时分配，且分配的大小就是程序要求的大小。</p>
+
+<p>从以上动、静态内存分配比较可以知道动态内存分配相对于静态内存分配的特点：</p>
+
+<ul>
+<li>不需要预先分配存储空间；</li>
+<li>分配的空间可以根据程序的需要扩大或缩小。</li>
+</ul>
+
+
+<p>要实现根据程序的需要动态分配存储空间，就涉及到 4 个函数，即 malloc()、calloc()、realloc()、free()，其原型分别为</p>
+
+<pre><code>void *malloc (unsigned int size);
+void *calloc (unsigned n, unsigned size);
+void *realloc (void *p, unsigned size);
+void free (void *p); 
+</code></pre>
+
+<p>malloc()、calloc() 及 realloc() 函数都是内存分配函数，其相同点是都返回所分配的连续存储区的起始地址，如果可供分配的内存不够则返回 NULL，不同之处在于 malloc() 函数分配足够的内存来存储长度（用 sizeof 运算符计算）为 size 的数据对象，即分配 size 字节的存储区；calloc() 函数分配 n 个数据项的存储区，每个数据项的大小（用 sizeof 运算符计算）为 size 字节，并将该存储区的每个字节都初始化为 0；realloc() 函数在保留 p 所指向的已分配存储区的内容的同时改变其长度为 size，如果需要把内容复制到新的存储区，若 size 比原来分配的空间小则放弃旧区域末尾的一些内容，若 size 比旧长度大则所有旧内容保留并在末尾增加新的空间。如果 realloc() 函数返回的指针不同于 p，则说明重新分配了内存，要假设旧内存已释放不能再用。必须注意的是，当内存分配函数未能成功分配存储空间（如内存不足）时就会返回一个 NULL 指针，所以在调用该函数时应该检测返回值是否为 NULL 并执行相应的操作。</p>
+
+<p>ANSI 标准中动态内存分配函数的返回值是 void *，其具有通用性，可指向任意类型的数据对象，在赋值时可进行隐式转换。但是在传统的 C 语言中，这些动态内存分配函数的返回类型为 char *，隐式转换可能会产生警告等信息。因此为了保证安全并保证 C++ 兼容性，需要用强制类型转换的方法把 void * 或者 char * 转换成所需的类型。</p>
+
+<p>例如，假设 T 是某个要动态分配的对象类型，可能是结构、数组或字符，则：</p>
+
+<pre><code>T * NewObject (void)
+{
+    T *objptr = (T *)malloc (sizeof(T));
+    if (objptr == NULL) printf ("NewObject: failed!\n");
+    return objptr;
+}
+</code></pre>
+
+<p>free() 函数为内存释放函数，当动态分配的存储空间使用完毕后一定得释放，否则会造成内存泄漏。</p>
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2012-07-17-ladder_of_life" title="人生之梯">人生之梯</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2012-09-10-image_magick_bash_script_to_resize_and_crop_images" title="Image Magick bash script to resize and crop images">Image Magick bash script to resize and crop images</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+

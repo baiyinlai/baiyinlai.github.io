@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>Wget基本用法</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">Wget基本用法</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2013-04-15</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#工具与软件">工具与软件</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#Linux">Linux&nbsp;&nbsp;</a><a href="/blog/tags.html#软件">软件&nbsp;&nbsp;</a></li>
+      
+    </ul>
+  </div>
+  <p>Wget 是一个非交互式（即无图形交互界面）的自由网络下载工具，支持通过 HTTP、HTTPS、FTP 三个最常见的 TCP/IP 协议下载，并可以使用 HTTP 代理。可以说 wget 是网络下载工具的最佳选择，因为它可以处理几乎任何复杂的下载任务。</p>
+
+<p>基本语法为：</p>
+
+<pre><code>$ wget [option]... [URL]...
+</code></pre>
+
+<h3>下载单个文件</h3>
+
+<p>直接在 wget 命令之后加上文件的下载地址即可。用法：</p>
+
+<pre><code>$ wget &lt;URL&gt;
+</code></pre>
+
+<p>比如：</p>
+
+<pre><code>$ wget http://www.example.com/example.tar.bz2
+</code></pre>
+
+<h3>断点续传下载</h3>
+
+<p>有时候由于网速限制或者文件太大无法一次性下载完成，此时如果利用的还是普通单个文件下载方式，则每次都需要从新下载整个文件，严重浪费下载时间，因此，可以开启断点续传模式，从而继续完成未完成的下载任务。用法：</p>
+
+<pre><code>$ wget -c &lt;URL&gt;
+</code></pre>
+
+<h3>下载整个网站</h3>
+
+<p>方法一：</p>
+
+<pre><code>$ wget --mirror -p --convert-links -P ./LOCAL-DIR WEBSITE-URL
+</code></pre>
+
+<ul>
+<li>–-mirror(-m)：开启镜像下载模式，进行递归下载。与以下选项组合等效：-r -N -l inf --no-remove-listing。</li>
+<li>-p(--page-requisites)：下载为使HTML文件能正常完整显示的必要文件，比如行内图片、声音以及参考样式表等。</li>
+<li>--convert-links(-k)：将下载的网页里的链接修改为本地链接，以便正常访问或浏览。</li>
+<li>-P ./LOCAL-DIR：将所下载的所有文件或目录都存放到指定目录中。</li>
+</ul>
+
+
+<p>方法二：</p>
+
+<pre><code>$ wget -r -p -k -np WEBSITE-URL
+</code></pre>
+
+<ul>
+<li>-r：递归下载，会下载所有的链接，不过要注意的是，不要单独使用这个参数，因为如果你要下载的网站也有别的网站的链接，wget 也会把别的网站的东西下载下来，由于互联网的特性，很有可能你会把整个互联网给下载下来，所以要加上 -np 这个参数，表示不下载别的站点的链接。</li>
+<li>-np(--no-parent)：递归下载时不要下载完站之外的文件。</li>
+</ul>
+
+
+<h3>下载多个文件</h3>
+
+<p>首先需要建立一份下载任务列表，将需要下载的所有文件的下载地址依次列出：</p>
+
+<pre><code>$ cat &gt; download-file-list.txt
+url1
+url2
+url3
+...
+</code></pre>
+
+<p>然后利用 -i 选项将下载任务列表文件作为参数传递给 wget：</p>
+
+<pre><code>$ wget -i download-file-list.txt
+</code></pre>
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2013-04-11-%E5%87%A0%E6%AC%BE%E4%B8%8D%E9%94%99%E7%9A%84%E5%BC%80%E6%BA%90CAD-CAM%E8%BD%AF%E4%BB%B6" title="几款不错的开源CAD-CAM软件">几款不错的开源CAD-CAM软件</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2013-04-15-a_flash_game-catch_the_cat" title="Flash小游戏——抓猫">Flash小游戏——抓猫</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+

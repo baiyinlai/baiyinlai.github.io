@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>利用 Excel 进行数据分析</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">利用 Excel 进行数据分析</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2013-05-29</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#工具与软件">工具与软件</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#Excel">Excel&nbsp;&nbsp;</a><a href="/blog/tags.html#学习笔记">学习笔记&nbsp;&nbsp;</a></li>
+      
+    </ul>
+  </div>
+  <p>Microsoft Excel 不仅仅是电子表格那么简单，也可以用来做数据处理、统计分析和辅助决策等操作，比如绘制各种分析图形(折线图、柱状图、饼图等)。</p>
+
+<h2>数据可视化</h2>
+
+<p><b>任务描述：</b>在同一张图表中分别绘制函数 y=x<sup>2</sup> 与函数 y=20x+10 的图形。</p>
+
+<h3>步骤一：随机获取一组离散点集并输入表格中。</h3>
+
+<p>自变量 x 的值取为：2、4、6、……、30，在 Excel 中任何一列中输入自变量的值，比如 A3 - A18。可以手动输入，也可以自动填充。填充方法为首先手动输入前两个数值，然后拖动选中包含这两个数值的单元格，在将鼠标指针移动到单元格右下方，当指针变为十字形时向下拖动鼠标即可完成自动填充。</p>
+
+<p>有了自变量的值就可以计算得到函数值，可以手动计算然后手动输入，但是此方法显然很繁琐且对于数据量大的操作不切实际，因此需要利用函数功能以及自动填充来完成。对于函数 y=x<sup>2</sup> ，在 B3 单元格中输入 <kbd>=A3*A3</kbd>，回车可以看出结果为 0，然后将鼠标指针移动到单元格右下方，当指针变为十字形时向下拖动鼠标即可完成自动填充。对于函数 y=20x+10 ，在 C3 单元格中输入 <kbd>=20*A3+10</kbd>，回车可以看出结果为 5，然后将鼠标指针移动到单元格右下方，当指针变为十字形时向下拖动鼠标即可完成自动填充。</p>
+
+<p>输入到 Excel 中的数据如图 1 所示。</p>
+
+<p class="align_c"><img src="/blog/media/excel_chart-01.jpg" alt="获取离散点集" /></p>
+
+
+
+
+<p class="figcaption">图1 输入离散点集序列值</p>
+
+
+<h3>步骤二：插入散点图绘制光滑曲线。</h3>
+
+<p>“插入”——“散点图”——“带平滑线的散点图”，弹出一个空白图表框，如图 2 所示。这是因为事先没有选中数据的缘故，如果事先选中 A3-C18 中的所有数据，则弹出有绘制曲线的图表框，不过有时它自动绘制的图形不太准确，还需要手动修改。</p>
+
+<p class="align_c"><img src="/blog/media/excel_chart-02.jpg" alt="插入散点图" /></p>
+
+
+
+
+<p class="figcaption">图2 插入散点图</p>
+
+
+<p>在“设计”选项卡中选择“选择数据”按钮，弹出“选择数据源”对话框，如图 3 所示。</p>
+
+<p class="align_c"><img src="/blog/media/excel_chart-03.jpg" alt="选择数据源对话框" /></p>
+
+
+
+
+<p class="figcaption">图3 "选择数据源"对话框</p>
+
+
+<p>单击“添加”按钮，弹出“编辑数据系列”对话框。在“系列名称”文本框中输入第一个散点图曲线的名称，比如 <kbd>y=x2</kbd>。单击“X 轴系列值”后面的“选择区域”按钮，弹出一个文本输入对话框，拖动选择 A3-A18 中的数据作为 X 轴系列值，回车返回“编辑数据系列”主对话框。单击“Y 轴系列值”后面的“选择区域”按钮，弹出一个文本输入对话框，先将文本框中的内容清除掉，然后拖动选择 B3-B18 中的数据作为 Y 轴系列值，回车返回“编辑数据系列”主对话框，如图 4 所示。单击“确定”返回“选择数据源”对话框。此时已经绘制了一条 y=x<sup>2</sup> 的光滑曲线，如图 5 所示。</p>
+
+<p class="align_c"><img src="/blog/media/excel_chart-04.jpg" alt="编辑数据系列对话框" /></p>
+
+
+
+
+<p class="figcaption">图4 "编辑数据系列"对话框</p>
+
+
+
+
+<p class="align_c"><img src="/blog/media/excel_chart-05.jpg" alt="函数1光滑曲线图" /></p>
+
+
+
+
+<p class="figcaption">图5 函数1光滑曲线图</p>
+
+
+<p>同理，“添加”系列，绘制函数 y=20x+10 的光滑散点图。最终两个函数的曲线图如图 6 所示。</p>
+
+<p class="align_c"><img src="/blog/media/excel_chart-06.jpg" alt="两个函数的光滑曲线图" /></p>
+
+
+
+
+<p class="figcaption">图6 两个函数的光滑曲线图</p>
+
+
+<h2>绘制折线图</h2>
+
+<p>折线图常常用来做数据分析对比，绘制方法和上述的数据可视化方法类似。</p>
+
+<p><b>任务描述：</b>给定两组数据，在同一图表中绘制两组数据的折线图。</p>
+
+<h3>步骤一：将两组数据输入表格中。</h3>
+
+<p>分别取三列，将横坐标的值输入到第一列 A5-A20 中，第一条折线图的纵坐标值输入到第二列 B5-B20 中，第二条折线图的纵坐标值输入到第三列 C5-C20 中，输入数据如图 7 所示。</p>
+
+<p class="align_c""><img src="/blog/media/excel_chart-07.jpg" alt="输入数据" /></p>
+
+
+
+
+<p class="figcaption">图7 输入数据</p>
+
+
+<h3>步骤二：绘制折线图</h3>
+
+<p>“插入”——“折线图”——“带数据标记的折线图”。“选择数据”——“选择数据源”——“添加”，弹出“编辑数据系列”对话框，此对话框中只有“系列名称”和“系列值”两个文本输入框，如图 8 所示。以第一组数据为例，系列名称为 <kbd>数据1</kbd>，系列值选择 B5-B20 中的数据，“确定”返回，发现所绘制的曲线的 X 轴坐标不是想要的坐标值，需要修改。在“选择数据源”对话框中单击“编辑”按钮，弹出“轴标签”对话框，拖动选择 A5-A20 中的数据作为“轴标签区域”数据，“确定”返回。则第一条折线图绘制完成，绘制的曲线图如图 9 所示。</p>
+
+<p class="align_c"><img src="/blog/media/excel_chart-08.jpg" alt="编辑数据系列" /></p>
+
+
+
+
+<p class="figcaption">图8 编辑数据系列</p>
+
+
+
+
+<p class="align_c"><img src="/blog/media/excel_chart-09.jpg" alt="第一条折线图" /></p>
+
+
+
+
+<p class="figcaption">图9 第一条折线图</p>
+
+
+<p>同理，对第二组数据利用同样的方法绘制出折线图，最终如图 10 所示。</p>
+
+<p class="align_c"><img src="/blog/media/excel_chart-10.jpg" alt="两条折线图" /></p>
+
+
+
+
+<p class="figcaption">图10 两条折线图</p>
+
+
+<h3>折线图和堆积折线图的区别</h3>
+
+<p>在插入折线图中，存在两种不同类型的折线图：折线图和堆积折线图，两者的区别在于：</p>
+
+<p>如果有两个数据系列，折线图中两个数据系列是独立的，而堆积折线图中，第一个数据系列和折线图中显示的是一样的，而第二个数据系列的值要和第一个数据系列的值在同一分类（或时间上）进行累计，即在同一横坐标下的纵坐标相加，这样可以显示两个数据系列在同一分类（或时间上）的值的总和的发展变化趋势。</p>
+
+<p>对上面的两条折线图应用“堆积折线图”的效果图如图 11 所示。</p>
+
+<p class="align_c"><img src="/blog/media/excel_chart-11.jpg" alt="堆积折线图" /></p>
+
+
+
+
+<p class="figcaption">图11  堆积折线图</p>
+
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2013-05-10-LiJiacheng_speech" title="打工是最愚蠢的投资">打工是最愚蠢的投资</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2013-06-05-lost_in_the_enchanted_land" title="民谣精选集 —《消失于美轮美奂的土地上》">民谣精选集 —《消失于美轮美奂的土地上》</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+

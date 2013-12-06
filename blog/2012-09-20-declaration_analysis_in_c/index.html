@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>C 语言声明解析</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">C 语言声明解析</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2012-09-20</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#学习与提升">学习与提升</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#学习笔记">学习笔记&nbsp;&nbsp;</a><a href="/blog/tags.html#C语言">C语言&nbsp;&nbsp;</a><a href="/blog/tags.html#编程语言">编程语言&nbsp;&nbsp;</a></li>
+      
+    </ul>
+  </div>
+  <h2>合法声明的限制条件</h2>
+
+<ol>
+<li>函数的返回值不能是一个函数，而可以是一个函数指针，所以像 foo()() 这样是非法的，而 int(* fun())() 是合法的；</li>
+<li>函数的返回值不能是一个数组，而可以是一个指向数组的指针，所以像 foo()[] 这样是非法的，而 int(* fun())[] 是合法的；</li>
+<li>数组里面不能有函数，但数组里面可以有其他数组，所以像 foo<a href=""></a> 这样是非法的，而 int foo[][] 是合法的。</li>
+</ol>
+
+
+<h2>声明的优先级规则</h2>
+
+<p>A：  声明从它的名字开始读取，然后按照优先级顺序依次读取。</p>
+
+<p>B：  优先级从高到低依次是：</p>
+
+<p>B.1： 声明中被括号括起来的部分</p>
+
+<p>B.2： 后缀操作符：括号（）表示这是一个函数，而方括号 [] 表示这是一个数组。</p>
+
+<p>B.3： 前缀操作符：星号表示“指向...的指针”。</p>
+
+<p>C：  如果 const 和（或）volatile 关键字的后面紧跟类型说明符（如 int、long 等），那么它作用于类型说明符。其他情况下，const 和（或）volatile 关键字作用于它左边紧邻的指针星号。</p>
+
+<h2>用优先级规则分析C语言声明一例</h2>
+
+<p>试分析以下声明语句：</p>
+
+<pre><code>char * const *(*next) ();
+</code></pre>
+
+<table border="1px" cellspacing="0" style="border-collapse:collapse">
+<tr>
+<td><b>适用规则</b></td>
+<td><b>解释</b></td>
+</tr>
+<tr>
+<td>A</td>
+<td>首先，看变量名“next”，并注意到它直接被括号所括住</td>
+</tr>
+<tr>
+<td>B.1</td>
+<td>所以先把括号里的东西作为一个整体，得出“next 是一个指向…的指针”</td>
+</tr>
+<tr>
+<td>B</td>
+<td>然后考虑括号外的东西，在星号前缀和括号后缀之间做出选择</td>
+</tr>
+<tr>
+<td>B.2</td>
+<td>B.2规则告诉我们优先级较高的是右边的函数括号，所以得出“next 是一个函数指针，指向一个返回…的函数”</td>
+</tr>
+<tr>
+<td>B.3</td>
+<td>然后处理前缀“*”，得出指针所指的内容</td>
+</tr>
+<tr>
+<td>C</td>
+<td>最后，把“char * const”解释为指向字符的常量指针</td>
+</tr>
+</table>
+
+
+<p>把上述分析结果加以概括，这个声明表示：“next 是一个指针，它指向一个函数，该函数返回另一个指针，该指针指向一个类型为 char 的常量指针”。</p>
+
+<h2>用图表解析C语言声明的步骤</h2>
+
+<p>图表参见下面的图1。如果按图索骥，从第一步开始，顺着箭头逐步往下分析，无论多么复杂的 C 语言声明都可以迎刃而解，都可以用最通俗的语言来解释。在图中忽略了 typedef 以简化声明。如果声明中有 typedef，就将其翻译成没有 typedef 的样子。如果它类似于“typedef p a …”这种形式，就把声明中所有类型为“a…”的东西用“p”来代替。</p>
+
+<p align="center"><img width="624px" height="806px" src="/blog/media/c_declaration_analysis.png" alt="C语言声明解析环" title="C语言声明解析环" /></p>
+
+
+
+
+<p class="figcaption">图 1 C 语言声明解析环</p>
+
+
+<p>现在仍然以刚刚那个例子来说明，即分析以下声明语句：</p>
+
+<pre><code>char * const *(*next) ();
+</code></pre>
+
+<p>在分析这个声明时，需要逐渐把已经处理过的片段“去掉”，这样便能知道还要分析多少内容。再次提醒，记住 const 表示“只读”，并不能因为它的意思是常量就认为它表示的就是常量。</p>
+
+<p>分析处理过程显示在图 2 中，在每一步骤中，所处理的那部分声明用红色字体表示。从第一步开始，我们将依次进行这些步骤。</p>
+
+<p align="center"><img width="683px" height="402px" src="/blog/media/cda_ex.png" alt="C语言声明解析举例" title="C语言声明解析举例" /></p>
+
+
+
+
+<p class="figcaption">图 2 C 语言声明解析举例</p>
+
+
+<p>将上述分析拼在一起，读作：“next 是一个指向函数的指针，该函数返回另外一个指针，该指针指向一个只读的指向 char 的指针”。</p>
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2012-09-10-image_magick_bash_script_to_resize_and_crop_images" title="Image Magick bash script to resize and crop images">Image Magick bash script to resize and crop images</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2012-10-02-good_habbits_of_efficient_people" title="高效率人士的优秀习惯">高效率人士的优秀习惯</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+

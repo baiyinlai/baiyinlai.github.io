@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>Linux/Unix 环境下实现精确计算程序运行的时间</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">Linux/Unix 环境下实现精确计算程序运行的时间</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2013-02-27</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#学习与提升">学习与提升</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#C语言">C语言&nbsp;&nbsp;</a><a href="/blog/tags.html#程序设计">程序设计&nbsp;&nbsp;</a></li>
+      
+    </ul>
+  </div>
+  <p>写程序时，程序的运行效率很重要，其往往是评价程序优劣性的直接标准。程序运行效率的最简单方法就是计算程序的运行时间。为了提高程序效率，使用适当的方法对程序的各个部分进行运行时间的计算是很有必要的。</p>
+
+<p>在 Linux/Unix 环境下，计算 C 程序运行时间可以通过以下三个函数来实现：clock()、time()、gettimeofday()。</p>
+
+<h3>clock() 函数</h3>
+
+<p>clock() 函数是 ANSI C 的标准库函数，是 C/C++ 十分常用的计时函数，其声明定义在 time.h 头文件中：</p>
+
+<pre><code>clock_t clock( void ); 
+</code></pre>
+
+<p>此函数返回处理器调用某个进程或函数所花费的时间的近似值，准确来说就是返回从“开启这个程序进程”到“程序中调用 clock() 函数”时这之间的 CPU 时钟计时单元（clock tick）数，在 MSDN 中称之为挂钟时间（wal-clock）。如果无法得到处理器时间，则返回数值 -1（转换为 time_t 类型）。时钟计时单元（clock tick）的时间长短是由CPU控制的。一个clock tick不是CPU的一个时钟周期，而是C/C++的一个基本计时单位。返回类型为 clock_t，是用来保存时间的数据类型，在 time.h 文件中，我们可以找到对它的定义：</p>
+
+<pre><code>#ifndef _CLOCK_T_DEFINED
+typedef long clock_t;
+#define _CLOCK_T_DEFINED
+#endif
+</code></pre>
+
+<p>很明显，clock_t 本质上是一个长整形数。</p>
+
+<p>以上可知 clock() 函数返回的是时钟计时单元数（俗称硬件滴答数），要换算成秒或者毫秒，需要用到 CLOCKS_PER_SEC 常量（或者 CLK_TCK 常量，两者其实一样），此常量在 time.h 文件中定义，用来表示一秒钟会有多少个时钟计时单元。在不同的系统中 CLOCKS_PER_SEC 常量的值通常不一样，比如在本人的 linux 系统下，其定义如下：</p>
+
+<pre><code>#define CLOCKS_PER_SEC  1000000l（最后面的是字母l）
+</code></pre>
+
+<p>而在 Windows 系统下的 VC6.0 中，其定义为：</p>
+
+<pre><code>#define CLOCKS_PER_SEC ((clock_t)1000)
+</code></pre>
+
+<p>这表示硬件滴答 1000 下是 1 秒，也即可以看到每过千分之一秒（1毫秒），调用 clock() 函数返回的值就加 1。</p>
+
+<p>因此，要计算运行某程序所需的时间只需要利用 clock() 函数得到运行此程序所消耗的钟计时单元数，然后再除以 CLOCKS_PER_SEC 即可。</p>
+
+<p>比如可以使用公式 clock()/CLOCKS_PER_SEC 来计算一个进程自身的运行时间：</p>
+
+<pre><code>void elapsed_time()  
+{  
+printf("Elapsed time:%u secs.\n",clock()/CLOCKS_PER_SEC);  
+}
+</code></pre>
+
+<p>下面用 clock() 函数来计算运行一个循环或者处理其它事件到底花了多少时间：</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+int main(void)
+{
+  long i = 10000000L;
+  clock_t start, finish;
+  double duration;
+  /* 测量一个事件持续的时间*/
+  printf( "Time to do %ld empty loops is ", i) ;
+  start = clock();
+  while( i-- );
+  finish = clock();
+  duration = (double)(finish - start) / CLOCKS_PER_SEC;
+  printf( "%f seconds\n", duration );
+  return 0;
+}
+</code></pre>
+
+<p>在本人的机器上（Linux系统），运行结果如下：</p>
+
+<pre><code>Time to do 10000000 empty loops is 0.03000 seconds
+</code></pre>
+
+<p>对于 clock() 函数来说，需要注意以下几点：</p>
+
+<ol>
+<li><p>它返回的是 CPU 耗费在本程序上的时间。也就是说，途中 sleep 的话，由于 CPU 资源被释放，那段时间将不被计算在内。因此，若函数中存在 sleep() 函数，则 sleep() 函数消耗的时间将不包含在内；</p></li>
+<li><p>得到的返回值其实就是耗费在本程序上的 CPU 时间片的数量，也就是 Clock Tick 的值。该值必须除以 CLOCKS_PER_SEC 这个宏值，才能最后得到以秒为单位的运行时间。在 POSIX 兼容系统中，CLOCKS_PER_SEC 的值为 1,000,000 的，也就是 1MHz。</p></li>
+<li><p>这个函数的精度不适很高，大约为 10ms，也有说是 1ms，但是在本人机器上达不到那么高。低于精度的程序全部输出 0ms。像计算 printf() 之类的调用时间是不可能实现的，因为printf() 的速度太快了，基本上和 clock() 的速度一样。所以，此函数适合用于计算一些大型程序，或循环程序。</p></li>
+</ol>
+
+
+<h3>time() 函数</h3>
+
+<p>time() 函数来获得当前日历时间（Calendar Time）。所谓的日历时间就是用“从一个标准时间点（一般是1970年1月1日0时0分0秒）到此时的时间经过的秒数”来表示的时间。其原型为：</p>
+
+<pre><code>time_t time(time_t * timer); 
+</code></pre>
+
+<p>如果 timer 不是 NULL，则返回值还存放在 *timer 中。如果遇到错误，则返回 -1（转换成 time_t 类型）。time_t是一个long 类型。如果你已经声明了参数 timer，你可以从参数 timer 返回现在的日历时间，同时也可以通过返回值返回现在的日历时间，即从一个时间点（例如：1970年 1月1日0时0分0秒）到现在此时的秒数。如果参数为空（NULL），函数将只通过返回值返回现在的日历时间，比如下面这个例子用来显示当前的日历时间：</p>
+
+<pre><code>#include &lt;time.h&gt; 
+#include &lt;stdio.h&gt; 
+#include &lt;dos.h&gt; 
+int main() {
+  time_t t;
+  t=time();
+  printf("The number of seconds since January 1,1970 is %ld",t);
+  return 0; 
+}
+</code></pre>
+
+<p>也可以利用 time() 函数计算某段程序的运行时间：</p>
+
+<pre><code>#include&lt;time.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+
+int main()
+{
+   time_t t1,t2;
+   time(&amp;t1);
+   //此处放置要测试的代码
+   sleep(10);//延时 1 秒
+   time(&amp;t2);
+   printf("%ld %ld %lds\n",t1,t2,t2-t1);
+   return 0; 
+}
+</code></pre>
+
+<p>在本人机器上的运行结果为：</p>
+
+<pre><code>1361997962 1361997972 10s
+</code></pre>
+
+<p>需要注意的是，time() 得到的时间的精度只有 1s。</p>
+
+<h3>gettimeofday() 函数</h3>
+
+<p>gettimeofday() 的函数原型为：</p>
+
+<pre><code>#include&lt;sys/time.h&gt;
+int gettimeofday(struct timeval*tv, struct timezone *tz )
+</code></pre>
+
+<p>gettimeofday() 会把目前的时间用 tv 结构体返回，当地时区的信息则放到 tz 所指的结构中。其结构体定义为：</p>
+
+<pre><code>struct  timeval {
+   long  tv_sec;/*秒*/
+   long  tv_usec;/*微妙*/
+}；
+
+struct  timezone{
+    int tz_minuteswest;/*和greenwich 时间差了多少分钟*/
+    int tz_dsttime;/*type of DST correction*/
+};
+</code></pre>
+
+<p>在 gettimeofday() 函数中 tv 或者 tz 都可以为空。如果为空则就不返回其对应的结构体。函数执行成功后返回 0，失败后返回 -1，错误代码存于 errno 中。</p>
+
+<p>程序实例为：</p>
+
+<pre><code>#include&lt;stdio.h&gt;
+#include&lt;sys/time.h&gt;
+#include&lt;unistd.h&gt;
+int main()
+{
+    struct  timeval    tv;
+    struct  timezone   tz;
+
+    gettimeofday(&amp;tv,&amp;tz);
+    printf(“tv_sec:%d\n”,tv.tv_sec);
+    printf(“tv_usec:%d\n”,tv.tv_usec);
+    printf(“tz_minuteswest:%d\n”,tz.tz_minuteswest);
+    printf(“tz_dsttime:%d\n”,tz.tz_dsttime);
+return 0;
+}
+</code></pre>
+
+<p>在使用 gettimeofday() 函数时，第二个参数一般都为空，因为我们一般都只是为了获得当前时间，而不用获得 timezone 的数值。</p>
+
+<p>也可利用此函数计算某段程序的运行时间：</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;sys/time.h&gt;
+int main()
+{
+   struct  timeval  start;
+   struct  timeval  end;
+   unsigned long timer;
+
+   gettimeofday(&amp;start,NULL);
+   printf("hello world!\n");
+   gettimeofday(&amp;end,NULL);
+   timer = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
+   printf("timer = %ld us\n",timer);
+   return 0;
+}
+</code></pre>
+
+<p>gettimeofday() 函数的计算精度为微秒，精度已经很高了。</p>
+
+<p>综上所述，gettimeofday() 函数的精度最高，为微秒级别；clock() 函数的精度次之，为 10ms 级别；time() 函数的精度最低，为 1s 级别。</p>
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2013-02-25-%E4%BA%BA%E7%9A%84%E5%B9%B8%E7%A6%8F%E6%84%9F%E5%8F%96%E5%86%B3%E4%BA%8E%E4%BB%80%E4%B9%88" title="人的幸福感取决于什么">人的幸福感取决于什么</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2013-03-06-%E5%A6%82%E4%BD%95%E5%A2%9E%E5%8A%A0%E7%BD%91%E7%AB%99%E7%9A%84RSS%E8%AE%A2%E9%98%85%E7%94%A8%E6%88%B7%E6%95%B0%E9%87%8F" title="如何增加网站的RSS订阅用户数量">如何增加网站的RSS订阅用户数量</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+

@@ -1,4 +1,4 @@
-var getDiv=document.getElementById("gotop");
+var getDiv=document.getElementById('gotop');
 getDiv.onclick=function(){
     window.scrollTo(0,0);
 }

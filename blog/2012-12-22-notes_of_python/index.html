@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="personal blog, Notes, GitHub, Jekyll, baige5117, all for one, 个人博客, 个人网站, 学习笔记, Music, Picture, 励志成功, 开心一刻, 学习提升, 工具, 软件" />
+    <meta name="description" content="Baige5117's personal website, mainly for recording and sharing, including blogs, sayings, music, photos and anything interesting." />
+    <meta name="author" content="Baige5117" />
+    <meta name="robots" content="all,index,follow" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <title>Python 学习笔记</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div id="top_menu">
+  <div id="t_m_center">
+    <div id="title">
+      <a href="/" title="Home">
+	<img id="hometip" src="/images/icons/home.png" alt="home" title="Home" />
+      </a>
+      <p>Love life, love sports, love to learn, & love...</p>
+    </div>
+    <ul id="top_nav">
+      
+       
+      <li id="t_n_li">
+	<a href="/blog/index.html" title="博文"><span class="db nav_bg nav_blog"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/sayings.html" title="言语"><span class="db nav_bg nav_sayings"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/music.html" title="音乐"><span class="db nav_bg nav_music"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/pictures.html" title="图片"><span class="db nav_bg nav_pictures"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/x.html" title="X"><span class="db nav_bg nav_x"></span></a>
+      </li> 
+      
+       
+      <li id="t_n_li">
+	<a href="/about.html" title="关于"><span class="db nav_bg nav_about"></span></a>
+      </li> 
+      
+    </ul>
+  </div>
+</div>
+
+    <div id="page_title">
+  <img src="/images/blog.png" id="p_t_img"/>
+  <h2><a href="/blog/">Blog</a></h2>
+  <p>Thought,&#160; done&#160; &&#160; record.</p>
+  <div id="top_icons">
+    <a href="#" title="订阅到QQ邮箱" target="_blank" ><img src="/images/icons/qq-24.png" alt="订阅到QQ邮箱" title="订阅到QQ邮箱" /></a>
+    <a href="#" title="订阅到iGoogle或Google Reader" target="_blank"><img src="/images/icons/rss-24.png" alt="google reader" title="订阅到iGoogle或Google Reader" /></a>
+    <a href="#" title="My Github" target="_blank"><img src="/images/icons/github-24.png" alt="google reader" title="My Github" /></a>
+  </div>
+  <div id="google_search"><!--Google站内搜索开始-->
+    <form name="cse" id="searchbox_demo" action="/search.html">
+      <input type="hidden" name="cref" value="" />
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="zh-CN" />
+      <input name="q" type="text" size="20" />
+      <input type="submit" name="sa" value="Search" />
+    </form>
+    <!--script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang=zh-CN"></script-->
+  </div><!--Google站内搜索结束-->
+</div>
+
+    <div id="out_wrap">
+      <div id="wrap">
+	<div id="post_wrapper">
+  <h1 class="post_title">Python 学习笔记</h1>
+  <div id="post_info">
+    <ul>
+      <li class="p_i_bg date">2012-12-22</li>
+      <li class="p_i_bg author">Baige5117</li>
+      <li class="p_i_bg cat"><a href="/blog/categories.html#学习与提升">学习与提升</a></li>
+      <li class="p_i_bg tag"><a href="/blog/tags.html#python">python&nbsp;&nbsp;</a><a href="/blog/tags.html#编程语言">编程语言&nbsp;&nbsp;</a><a href="/blog/tags.html#学习笔记">学习笔记&nbsp;&nbsp;</a></li>
+      <li class="p_i_bg link"><a href="http://www.python.org/" target="_blank">Python官网</a></li>
+    </ul>
+  </div>
+  <h2>简单的“Hello world”程序</h2>
+
+<p>有两种方法可以运行 python 程序：python 解析器（或称 python 运行环境）中交互运行和源文件运行</p>
+
+<h3>python 解析器中交互运行</h3>
+
+<p>打开终端，输入 <code>python3</code> 命令打开 python 解析器，将出现提示符 <code>>>></code>。</p>
+
+<p>输入 <code>print('Hello world')</code> 语句，然后回车，将看到 <code>Hello word</code> 输出字样。下面是在 linux 环境下的运行结果：</p>
+
+<pre><code>&gt;&gt;&gt; python3
+Python 3.2.3 (default, Dec 18 2012, 16:23:22) 
+[GCC 4.6.3] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; print('Hello world')
+Hello world
+&gt;&gt;&gt; 
+</code></pre>
+
+<p>退出 python 解析器的方法是：在 linux 系统中按下 <kbd>Ctrl-d</kbd> 或者输入 <code>exit()</code> (不要忘了后面的一对括号)并回车就可退出；在 Windows 系统下，按下 <kbd>Ctrl-z</kbd> 并回车即可。</p>
+
+<h3>源文件运行</h3>
+
+<p>打开文本编辑器，新建一名为 <cite>hello.py</cite> 的源文件（后缀 .py 无关紧要）并输入以下文本：</p>
+
+<pre><code>print('Hello World')
+</code></pre>
+
+<p>打开终端并进入源文件所在的目录，然后输入 <code>python3 hello.py</code> 命令即得到“Hello World”字样输出，运行结果如下：</p>
+
+<pre><code>&gt;&gt;&gt; python3 hello.py 
+Hello World
+</code></pre>
+
+<h4>可执行的 python 程序</h4>
+
+<p>在  <cite>hello.py</cite> 文件的第一行加入以下文本内容（被称为 hashbang）：</p>
+
+<pre><code>#!/usr/bin/env python3
+</code></pre>
+
+<p>所以现在的  <cite>hello.py</cite> 文件内容如下：</p>
+
+<pre><code>#!/usr/bin/env python3
+print('Hello World')
+</code></pre>
+
+<p>然后赋予此文件具有可执行权限：</p>
+
+<pre><code>$ chmod a+x hello.py
+</code></pre>
+
+<p>然后就可以直接在终端中运行源文件了：</p>
+
+<pre><code>$ ./hello.py
+Hello World
+</code></pre>
+
+<p>上面的命令必须在源文件所在的目录内才能成功运行，所以使用了 <code>./</code>，要想在任意目录中运行此源文件，需要先将包含源文件的目录添加到 <code>PATH</code> 变量中。比如源文件所在目录为 <code>/home/user01/bin</code>，则强其添加到 <code>PATH</code> 变量中：</p>
+
+<pre><code>$ export PATH=$PATH:/home/user01/bin
+</code></pre>
+
+<p>之后就可以在终端中直接输入 <code>hello.py</code> 来运行 python 程序了。</p>
+
+<h2>基本知识</h2>
+
+<h3>注释信息</h3>
+
+<p>Python 中的注释信息提示符为井号 <code>#</code>，任何位于 <code>#</code> 右边的信息都被认为为注释信息。例如：</p>
+
+<pre><code>print(‚Hello World‚) # Note that print is a function
+# Note that print is a function
+print(‚Hello World‚)
+</code></pre>
+
+<h3>常量（或称字面常量 Literal Constants）</h3>
+
+<p>常量的值无法改变，有数字常量，比如 5、3.14 等；字符串常量，例如 ’This is a string’、"It’s a string!" 等。</p>
+
+<h3>数字（Numbers）</h3>
+
+<p>数字又分为两种类型——整型和浮点型。</p>
+
+<p>整型没有小数点，例如 2、100 等，而浮点型有小数点，例如 3.14、52.3E-4，其中 52.3E-4 表示 52.3*10<sup>-4</sup> 。</p>
+
+<p><strong>注意：</strong>python 没有 <code>long</code> 类型，<code>int</code> 类型可以使任意长度的整型数字。</p>
+
+<h3>字符串（Strings）</h3>
+
+<p>字符串是由一系列字符（比如字母、数字、下划线等）组成的字符序列，通常括在引号中——单引号、双引号及三引号。</p>
+
+<p>单引号（<code>''</code>）：’Quote me on this’。</p>
+
+<p>双引号（<code>""</code>）："Quote me on this"。</p>
+
+<p>三引号（<code>"""</code> 或者 <code>'''</code>）：可以将一个多行字符串用三引号括起来，而且在其中可以任意使用单引号和双引号，比如：</p>
+
+<pre><code>"""
+Usage: thingy [OPTIONS]
+   -h                        Display this usage message
+   -H hostname               Hostname to connect to
+"""
+</code></pre>
+
+<p><strong>注意：</strong></p>
+
+<ul>
+<li>单引号与双引号括起来的字符串之间没有任何区别。</li>
+<li>字符串一旦创建其内容就不可改变。</li>
+<li>python 中没有 <code>char</code> 类型。</li>
+</ul>
+
+
+<p><b>格式化方法</b></p>
+
+<p>如果想用其它信息创建字符串，可以使用 <code>format()</code> 函数实现。例如创建 <cite>str_format.py</cite> 文件并添加以下内容：</p>
+
+<pre><code>age = 20
+name = 'Swaroop'
+print('{0} was {1} years old when he wrote this book'.format(name, age))
+print('Why is {0} playing with that python?'.format(name))
+</code></pre>
+
+<p>将输出以下信息：</p>
+
+<pre><code>$ python3 str_format.py
+Swaroop was 20 years old when he wrote this book
+Why is Swaroop playing with that python?
+</code></pre>
+
+<p><code>format()</code> 是字符串对象的一个成员函数，用于将一些变量转化为字符串并做相应的替换，即将 <code>{}</code> 依次替换为由后面的变量转换称的字符串。其中 <code>{}</code> 中的数字编号是从 0 开始的，但不是必需的，即下面的内容和上面的内容具有完全相同的输出效果：</p>
+
+<pre><code>age = 20
+name = 'Swaroop'
+print('{} was {} years old when he wrote this book'.format(name, age))
+print('Why is {} playing with that python?'.format(name))
+</code></pre>
+
+<p>其实可以通过以下语句实现相同的效果：</p>
+
+<pre><code>name + ’ is ’ + str(age) + ’ years old’
+</code></pre>
+
+<p>但是用 <code>format()</code> 更优雅，不容易出错，且自动转化变量为字符串类型。</p>
+
+<h3>变量（Variable）</h3>
+
+<p>变量，顾名思义就是值可以改变的量，变量是标识符（Identifier）的一种。</p>
+
+<p>Python 变量的使用只需要将一个值（字面常量或变量等）赋给变量名即可，无需声明变量类型。比如文件 <cite>var.py</cite> 有以下声明语句：</p>
+
+<pre><code>i = 5
+print (i)
+j = i + 1
+print (j)
+i = 'Hello world!'
+print (i)
+</code></pre>
+
+<p>输出：</p>
+
+<pre><code>python3 var.py
+5
+6
+Hello world!
+</code></pre>
+
+<h3>标识符（Identifier）</h3>
+
+<p>标识符是用于唯一标识对象的名称。标识符命名规则：</p>
+
+<ul>
+<li>标识符由且仅有以下字符组成：字母、下划线和数字；</li>
+<li>第一个字符必须是字母或下划线；</li>
+<li>标识符对大小写字母敏感，即 <code>myname</code> 和 <code>myName</code> 是两个不同的标志符。</li>
+</ul>
+
+
+<h3>数据类型（Data Types）</h3>
+
+<p>变量具有多种数据类型，最常用的数字和字符串，还有可以创建任意自定义类型的类（class）类型。</p>
+
+<h3>对象（Object）</h3>
+
+<p>一般意义上，Python 把程序中的所有东西都称为对象，包括数字、字符串以及函数等。</p>
+
+<h3>逻辑行和物理行（Logical And Physical Line）</h3>
+
+<p>物理行就是在程序源文件中所看到的一行内容，而逻辑行是 Python 所处理的单条声明语句。Python 隐式的假设每一个物理行都对应一个逻辑行，而且也鼓励每行只有一条声明语句，但是一个物理行也可以包含多个逻辑行，即一行中有多条声明语句，此时需要显式利用分号（;）来将每条逻辑声明语句分割开（物理行中的最后一个逻辑声明语句末尾可以不加分号）。比如：</p>
+
+<pre><code>i = 5
+print(i)
+</code></pre>
+
+<p>等同于：</p>
+
+<pre><code>i = 5;
+print(i);
+</code></pre>
+
+<p>也等同于：</p>
+
+<pre><code>i = 5; print(i);
+</code></pre>
+
+<p>也等同于：</p>
+
+<pre><code>i = 5; print(i)
+</code></pre>
+
+<p><strong>建议：</strong>每行尽量只有一条声明语句，尽量不使用分号，如果逻辑行语句太长可以使用反斜线（\）将单行分成多行。比如：</p>
+
+<pre><code>s = ‘This is a string. \
+This continues the string.’
+</code></pre>
+
+<p>等同于：</p>
+
+<pre><code>s = ‘This is a string. This continues the string.‘
+
+print\
+(i)
+</code></pre>
+
+<p>等同于：</p>
+
+<pre><code>print(i)
+</code></pre>
+
+<h3>缩进（Indentation）</h3>
+
+<p>Python 对于缩进的控制非常严格，因为 python 是用缩进来分割语句块（block）的（C语言是由花括号），而缩进是由空白符（空格符和制表符）来实现的。</p>
+
+<p>同一级别的语句要具有相同的缩进量，而且不能随意使用缩进，否则容易出错。比如语句前面不能随便加空格。</p>
+
+<h2>操作符与表达式（Operators and Expressions）</h2>
+
+<p>Python 的大多数声明语句（即逻辑行）都会包括表达式，表达式由操作符和操作数（operand）组成。</p>
+
+<h3>操作符</h3>
+
+<p>+：将两个对象相加。对于数字就是求和，对于字符串就是合并。</p>
+
+<p>-：相减和取负数。</p>
+
+<p>*：乘倍。对于数字就是做乘积，对于字符串就是乘倍扩展字符串。比如：'la'*3 得到 'lalala'。</p>
+
+<p>**：求幂。比如：2**3 就是 2 的 3 次幂。</p>
+
+<p>/：做除法。<strong>是数学意义上的除法而不是圆整除法。</strong>比如：4/3 得到 1.3333333333333 而不是 1（C 语言就是 1）。Python 中的圆整除法的运算符为 <code>//</code>。</p>
+
+<p><strong>注意：</strong>在 python2 中除法的默认结果就是圆整除法，即当两个数字都为整数时其结果为圆整结果。对 python3 来说默认为一般除法。</p>
+
+<p>//：圆整除法。用来求商数，比如 4//3 其商数为 1，余数为 1。</p>
+
+<p>%：求余，不仅限于整数。比如：8%3 为 2；</strong>-25.5%2.25 为 1.5</strong>。</p>
+
+<p>&lt;&lt;：位左移。相当于乘 2。</p>
+
+<p>>>：位右移。相当于除 2。</p>
+
+<p>&amp;：按位求与。</p>
+
+<p>|：按位求或。</p>
+
+<p>^：按位亦或。</p>
+
+<p>~：按位取反。</p>
+
+<p>&lt;：小于。</p>
+
+<p>>：大于。</p>
+
+<p>&lt;=：小于等于。</p>
+
+<p>>=：大于等于。</p>
+
+<p>==：等于。</p>
+
+<p>！=：不等于。</p>
+
+<p>not：逻辑非。<code>x = True</code>，则 <code>not x</code> 为 <code>False</code>。</p>
+
+<p>and：逻辑与。</p>
+
+<p>or：逻辑或。</p>
+
+<h4>数学运算与赋值的简便写法</h4>
+
+<p>规则就是 var = var operation expression 可以简写为：var operation= expression。</p>
+
+<p>比如：<code>a = a * 3</code> 可以简写为 <code>a *= 3</code></p>
+
+<h3>优先级顺序（Evaluation Order）</h3>
+
+<p>按照优先级顺序由低到高以此为（处于同一行中的操作符具有相同的优先级）：</p>
+
+<ul>
+<li>lambda</li>
+<li>or</li>
+<li>and</li>
+<li>not</li>
+<li>in, not in</li>
+<li>is, is not</li>
+<li>&lt;, &lt;=, >, >=, !=, ==</li>
+<li>|</li>
+<li>^</li>
+<li>&amp;</li>
+<li>&lt;&lt;, >></li>
+<li>+, -</li>
+<li>*, /, //, %</li>
+<li>+x, -x</li>
+<li>~x</li>
+<li>**</li>
+<li>x.attribute</li>
+<li>x[index]</li>
+<li>x[index1:index2]</li>
+<li>f(arguments...)</li>
+<li>(expressions, ...)</li>
+<li>[expressions, ...]</li>
+<li>{key:datum, ...}</li>
+</ul>
+
+
+<p>要想改变操作符的优先级顺序，可以使用<strong>小括号</strong>来实现。比如 <code>((2+3)+3)*4</code>。</p>
+
+<h3>结合性（Associativity）</h3>
+
+<p>具有同一优先级的操作符一般具有从左向右的结合性。但是也有从有向左结合的操作符，比如赋值操作符（=）。</p>
+
+<h2>一些注意事项</h2>
+
+<ol>
+<li><p>python 语言对大小写敏感，所以 <code>print</code> 和 <code>Print</code> 是不一样的函数名。</p></li>
+<li><p>获取帮助 <code>help()</code>：</p></li>
+</ol>
+
+
+<p>获取函数功能（比如 <code>print()</code> 函数）的帮助信息，直接输入 <code>help(print)</code>；获取操作符（比如 <code>return</code>）的帮助信息，直接输入 <code>help(‘return’)</code>，需要将操作符用引号括起来。</p>
+
+<h2>参考资料</h2>
+
+<ol>
+<li><cite>A Byte of Python</cite> by Swaroop C H.</li>
+</ol>
+
+
+  <div id="post_nxpr">
+    <ul>
+      
+      <li id="post_pre">
+	<span class="emphasize_zh">上一篇：</span> 
+	<a rel="prev" href="/blog/2012-12-15-%E7%BD%91%E7%AB%99%E4%BC%98%E5%8C%96%E4%B9%8BCSS%E6%96%87%E4%BB%B6%E4%BC%98%E5%8C%96%E6%8E%AA%E6%96%BD" title="网站优化之CSS文件优化措施">网站优化之CSS文件优化措施</a>
+      </li>
+      
+      
+      <li id="post_next">
+	<span class="emphasize_zh">下一篇：</span>
+	<a rel="next" href="/blog/2012-12-24-%E4%B8%98%E5%90%89%E5%B0%94%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E6%BC%94%E8%AE%B2" title="丘吉尔的最后一次演讲">丘吉尔的最后一次演讲</a>
+      </li>
+      
+    </ul>
+  </div>
+</div> 
+
+      </div><!--End_wrap-->
+    </div>
+    <div id="footer">
+<div class="bottom_nav"><a href="/">Home</a> &#160;&#124;&#160; <a href="/blog/index.html">Blog</a> &#160;&#124;&#160; <a href="/sayings.html">Sayings</a> &#160;&#124;&#160; <a href="/music.html">Music</a> &#160;&#124;&#160; <a href="/pictures.html">Pictures</a> &#160;&#124;&#160; <a href="/x.html">X</a> &#160;&#124;&#160; <a href="/about.html">About</a></div>
+
+<div class="copyright">Copyright &#169; 2011-2013 by <a href="/index.html">Baige5117</a>. All Rights Reserved</div>
+</div>
+<div id="gotop">回顶部</div>
+<script type="text/javascript" src="/js/gotop.js"></script>
+
+    <!--以下为百度统计代码-->
+    <script type="text/javascript">
+      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb145740af16f12510a2d43b45804e638' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+  </body>
+</html>
+
+
